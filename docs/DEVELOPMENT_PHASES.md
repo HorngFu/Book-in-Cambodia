@@ -48,7 +48,7 @@ Rules for every phase:
 | 0 | Foundation and technical spike | Free | Done locally (deploy + GitHub login waiting on owner accounts) |
 | 1 | Project scaffold, design system, auto-deploy | Free | Done (auto-deploy waits on Cloudflare secrets) |
 | 2 | Content model in Keystatic | Free | Done |
-| 3 | Public pages | Free | Not started |
+| 3 | Public pages | Free | Done |
 | 4 | Search and filters | Free | Not started |
 | 5 | Online editing (Keystatic GitHub mode) | Free | Not started |
 | 6 | Contribution features: requests and reports | Free | Not started |
@@ -284,12 +284,16 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 2. Before writing the Keysta
 
 ### Tasks
 
-- [ ] All routes above with `generateStaticParams` (no runtime file reads).
-- [ ] Contact buttons that open Telegram (`https://t.me/...`), Facebook, phone (`tel:`), and Google Maps directly. Telegram first, since it is the most used in Cambodia.
-- [ ] "Last verified" shown on every availability and store entry; older than 6 months shows a "may be outdated" hint.
-- [ ] Book cards and lists reuse shared components.
-- [ ] Fall back to the English field when a Khmer field is empty.
-- [ ] Mobile-first layouts (most visitors will be on phones).
+- [x] All routes above with `generateStaticParams` (no runtime file reads): 134 static pages for the seed data. Book pagination is `/books/page/N` (24 per page). The 404 is a bilingual `app/global-not-found.tsx` (links home in both languages; search arrives in Phase 4).
+- [x] Contact buttons that open Telegram (`https://t.me/...`), Facebook, phone (`tel:`), and Google Maps directly. Telegram first, since it is the most used in Cambodia. *Sample (made-up) entries show the same buttons disabled with a "Sample" label.*
+- [x] "Last verified" shown on every availability and store entry; older than 6 months shows a "may be outdated" hint (computed at build time; Phase 7's daily rebuild keeps it current).
+- [x] Book cards and lists reuse shared components (`BookCard`, `BookCover`, `ListingCard`, `StoreCard`, `ImportServiceCard`, `FilterableList`).
+- [x] Fall back to the English field when a Khmer field is empty.
+- [x] Mobile-first layouts (most visitors will be on phones).
+- [x] Store directory and book-page listings filter by province/type in the browser; without JavaScript everything is shown.
+- [x] "Request a book", "Report wrong info" and "Add my store" open a pre-filled GitHub issue for now (Phase 6 replaces them with issue forms and a non-GitHub option).
+
+Worker size after Phase 3: **1.69 MB gzip** (limit 3 MB).
 
 ### Done when
 

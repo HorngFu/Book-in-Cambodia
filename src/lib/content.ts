@@ -21,7 +21,13 @@ export type Category = WithSlug<CategoryEntry>;
 export type Store = WithSlug<StoreEntry>;
 export type ImportService = WithSlug<ImportServiceEntry>;
 export type Listing = BookEntry["availability"][number] & { store: string };
-export type Book = WithSlug<Omit<BookEntry, "availability">> & { availability: Listing[] };
+export type Book = WithSlug<Omit<BookEntry, "availability" | "authors" | "categories">> & {
+  authors: string[];
+  categories: string[];
+  availability: Listing[];
+};
+
+const present = (value: string | null): value is string => !!value;
 
 function memo<T>(load: () => Promise<T>): () => Promise<T> {
   let promise: Promise<T> | undefined;
@@ -60,6 +66,8 @@ export const getAllBooks = memo(async (): Promise<Book[]> => {
     .map(({ slug, entry }) => ({
       ...entry,
       slug,
+      authors: entry.authors.filter(present),
+      categories: entry.categories.filter(present),
       availability: entry.availability.filter(
         (listing): listing is Listing => !!listing.store && storeSlugs.has(listing.store),
       ),
