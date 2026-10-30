@@ -2,13 +2,27 @@
 
 > Working name: **Book in Cambodia**. Rename anytime; nothing in this plan depends on it.
 
-An open source website for book lovers in Cambodia. A visitor can:
+A **non-profit, open source hub for book lovers in Cambodia**: one central place for readers, bookstores, libraries, writers and volunteers. A visitor can:
 
 1. **Find a book** by searching title, author, ISBN, or category (English and Khmer).
 2. **See where to get it in Cambodia**: bookstores, second-hand sellers, libraries, and online sellers, with location and contact.
 3. **Contact a book-buying service** that orders from abroad when nobody in Cambodia has it.
+4. **Join the reading community**: book events and fairs, book clubs, places that accept donated books, and ways to volunteer.
 
 The site does **not** sell books or take payments. It is a directory that points people to the right place.
+
+### Non-profit principles
+
+These apply to every phase. If a feature would break one of them, it doesn't get built.
+
+| Principle | What it means in practice |
+|---|---|
+| **Free for everyone** | No accounts needed to use the site. No paywalls. |
+| **Fair listings** | Every store, library and import service is listed free and treated equally. No paid placement, no "featured" slots for money, no commissions or affiliate links. Ordering is by relevance, distance or name only. |
+| **No ads, no tracking** | No advertising and no tracking cookies. Analytics are cookie-free and aggregate only. |
+| **Open** | Code is open source (MIT). Catalog data is open (CC BY-SA 4.0) and downloadable, so it outlives the project. |
+| **Transparent money** | Running costs and every donation received are published. Donations only cover running costs (domain, hosting when it becomes paid) and community activities. |
+| **Community-run** | Content comes from volunteers, stores and readers. Decisions are made in the open (GitHub issues and discussions). |
 
 ---
 
@@ -37,10 +51,11 @@ Rules for every phase:
 | 3 | Public pages | Free | Not started |
 | 4 | Search and filters | Free | Not started |
 | 5 | Online editing (Keystatic GitHub mode) | Free | Not started |
-| 6 | Community features | Free | Not started |
-| 7 | Launch polish: SEO, performance, accessibility | Free (domain optional) | Not started |
-| 8 | Scale up (paid, only when needed) | ~$5+/month | Not started |
-| 9 | Future ideas (backlog) | Varies | Backlog |
+| 6 | Contribution features: requests and reports | Free | Not started |
+| 7 | Community hub: events, book clubs, donations, volunteers | Free | Not started |
+| 8 | Launch polish: SEO, performance, accessibility, transparency | Free (domain optional) | Not started |
+| 9 | Scale and sustain (paid only when needed, donation-funded) | ~$5+/month | Not started |
+| 10 | Future ideas (backlog) | Varies | Backlog |
 
 ---
 
@@ -64,8 +79,8 @@ Rules for every phase:
 | CMS | Keystatic, content stored in the Git repo | Requested; no database, edits are Git commits, fits open source. |
 | Hosting | Cloudflare Workers via the OpenNext adapter (`@opennextjs/cloudflare`) | Cloudflare's supported path for Next.js. `next-on-pages` is deprecated. |
 | CI/CD | GitHub Actions → `wrangler deploy` | Unlimited free minutes for public repos. |
-| Styling | Tailwind CSS | Fast to build, small CSS output. |
-| Languages | English + Khmer (`/en`, `/km`) | Local audience. Khmer font: Noto Sans Khmer or Kantumruy Pro. |
+| Styling | Tailwind CSS, tokens in [docs/DESIGN.md](DESIGN.md) | Fast to build, small CSS output. |
+| Languages | English + Khmer (`/en`, `/km`) | Local audience. Fonts: Epilogue + Kantumruy Pro for Khmer. |
 | Search | Build-time JSON index + client-side search (MiniSearch) | Zero server cost; works for thousands of books. |
 | Images | Book covers in the repo, pre-resized to WebP | Avoids paid image optimization on the free plan. |
 | Analytics | Cloudflare Web Analytics | Free, no cookies, no consent banner needed. |
@@ -76,11 +91,13 @@ Cloudflare Workers have no filesystem at runtime, and Keystatic content lives in
 
 This is also what keeps hosting free: pre-built pages are cheap to serve and stay far below the free plan's CPU limit.
 
+Time-based content (events) is handled the same way: a scheduled GitHub Actions job rebuilds the site once a day so past events drop off, and the page also hides past events in the browser in case a build is late.
+
 ---
 
 ## Cost plan: free first, paid later
 
-### Free tier (Phases 0–7)
+### Free tier (Phases 0–8)
 
 | Service | Free allowance (verify current limits before launch) | Our expected use |
 |---|---|---|
@@ -93,9 +110,9 @@ This is also what keeps hosting free: pre-built pages are cheap to serve and sta
 
 **Only likely cost before scaling:** a custom domain (about $10–15/year for `.org`; `.com.kh` / `.org.kh` cost more and require local registration paperwork).
 
-### When to move to paid (Phase 8)
+### When to move to paid (Phase 9)
 
-Upgrade only when one of these happens:
+Upgrade only when one of these happens, and pay for it from donations (see [Non-profit principles](#non-profit-principles)):
 
 | Trigger | Upgrade | Rough cost |
 |---|---|---|
@@ -153,11 +170,11 @@ Read docs/DEVELOPMENT_PHASES.md and do Phase 0. Start with the repo basics (READ
 ### Tasks
 
 - [ ] Next.js (App Router, TypeScript strict), ESLint, Prettier.
-- [ ] Tailwind CSS with design tokens (colors, spacing, typography) and dark mode.
-- [ ] Fonts: a Latin font + **Noto Sans Khmer** or **Kantumruy Pro**, self-hosted via `next/font`.
+- [ ] Tailwind CSS with the design tokens from [docs/DESIGN.md](DESIGN.md) (colors, radii, shadows, type scale).
+- [ ] Fonts: **Epilogue** (Latin) + **Kantumruy Pro** (Khmer), self-hosted via `next/font`.
 - [ ] i18n routing for `/en` and `/km` (e.g. `next-intl`), with UI strings in `messages/en.json` and `messages/km.json`. Default locale: decide in this phase.
-- [ ] Base layout: header (logo, search box placeholder, language switcher), footer (about, contribute, GitHub link, license).
-- [ ] Reusable UI components: Button, Card, Badge, Input, Select, EmptyState.
+- [ ] Base layout following DESIGN.md: header (logo, nav, language switch, Contribute button), footer (explore, contribute, non-profit links, license), mobile bottom tab bar.
+- [ ] Reusable UI components from DESIGN.md: Button (primary, dark, outline, soft), SearchBar, Chip, Badge, Card, BookCard, SectionHeader, CtaBand, Input, Select, EmptyState.
 - [ ] OpenNext + `wrangler.jsonc` config; `images.unoptimized = true` for now.
 - [ ] GitHub Actions:
   - [ ] `ci.yml`: lint, type-check, build on every PR
@@ -173,7 +190,7 @@ Read docs/DEVELOPMENT_PHASES.md and do Phase 0. Start with the repo basics (READ
 ### Ask Claude
 
 ```
-Read docs/DEVELOPMENT_PHASES.md and implement Phase 1. Reuse anything from the Phase 0 spike that is good enough; replace the rest. Tell me which GitHub secrets I need to add.
+Read docs/DEVELOPMENT_PHASES.md and docs/DESIGN.md, then implement Phase 1. Reuse anything from the Phase 0 spike that is good enough; replace the rest. Tell me which GitHub secrets I need to add.
 ```
 
 ---
@@ -257,7 +274,7 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 2. Before writing the Keysta
 | `/[locale]/stores/[slug]` | Store detail: map link, contact, hours, books listed there. |
 | `/[locale]/import-services` | All buying-from-abroad services with how-it-works explanation. |
 | `/[locale]/import-services/[slug]` | Service detail and contact. |
-| `/[locale]/about` | Mission, how it works, disclaimer, how to contribute. |
+| `/[locale]/about` | Mission, the non-profit principles, how it works, disclaimer, how to contribute. |
 | `not-found` | Friendly 404 with search. |
 
 ### Tasks
@@ -342,7 +359,7 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 5. Walk me step by step thro
 
 ---
 
-## Phase 6 — Community features
+## Phase 6 — Contribution features: requests and reports
 
 **Goal:** People who are not editors can still help: request books, report wrong info, suggest stores. Still free.
 
@@ -375,11 +392,62 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 6.
 
 ---
 
-## Phase 7 — Launch polish: SEO, performance, accessibility
+## Phase 7 — Community hub: events, book clubs, donations, volunteers
 
-**Goal:** Ready for the public: discoverable on Google, fast on cheap phones, accessible, and with real data.
+**Goal:** Make the site the central place for Cambodia's book lovers, not just a book finder: what's happening, who reads together, where books are needed, and how to help.
 
 **Needs:** Phase 6.
+
+### New content types (Keystatic)
+
+**`events`**: title, titleKm, slug, type (book fair, reading club meetup, author talk, book swap, workshop, other), start/end date and time, venue name, province, address, Google Maps link, online link (optional), organizer, contact (Telegram/Facebook), free or price note, cover image, description, language(s).
+
+**`bookClubs`**: name, nameKm, slug, province (or "online"), language(s), how often they meet, where, what they read (genres), how to join (Telegram/Facebook link), contact, `lastVerified`.
+
+**`donationPlaces`**: name, slug, type (community library, school, NGO, book drive), province, address, what they accept (children's books, Khmer books, English learning, textbooks, any), what they don't accept, how to drop off or send, contact, `lastVerified`.
+
+**`authors`** (extend): add a "Cambodian author" flag and a short Khmer bio, so Khmer writers can be featured.
+
+### Pages
+
+| Route | Content |
+|---|---|
+| `/[locale]/community` | Hub page: upcoming events, book clubs, donate books, get involved, the non-profit principles. |
+| `/[locale]/events` and `/[locale]/events/[slug]` | Upcoming events by date, filter by province and type; event detail with map, contact and "Add to calendar" (`.ics` file generated at build). Past events in a collapsed archive. |
+| `/[locale]/book-clubs` and `/[locale]/book-clubs/[slug]` | Clubs by province and language, with join links. |
+| `/[locale]/donate-books` | Places that accept donated books, what each one needs, how to give. |
+| `/[locale]/get-involved` | Volunteer roles: add books, verify store info, translate to Khmer, organize events, code on GitHub. |
+| `/[locale]/authors?origin=cambodia` | Cambodian authors spotlight (static filter page). |
+
+### Tasks
+
+- [ ] Add the new collections to `keystatic.config.ts` and data helpers in `src/lib/content/`.
+- [ ] Build the pages above; add "Community" to the main navigation and a community section on the home page.
+- [ ] Daily scheduled rebuild (GitHub Actions `schedule:` cron) so past events disappear; hide past events client-side too.
+- [ ] "Add to calendar" `.ics` download per event, generated at build time.
+- [ ] Issue Forms: **Submit an event**, **Add a book club**, **Add a place that accepts donated books**.
+- [ ] Mobile bottom tab bar gains a **Community** tab.
+- [ ] Seed data for each new type, clearly marked as sample.
+
+### Done when
+
+- An organizer can submit an event without a GitHub account (Telegram or form) and it appears on the site after review.
+- The home page shows upcoming events and links to book clubs, donating books and volunteering.
+- Past events disappear within a day without anyone editing the site.
+
+### Ask Claude
+
+```
+Read docs/DEVELOPMENT_PHASES.md and implement Phase 7. Use the Community page in the UI design as the reference for layout.
+```
+
+---
+
+## Phase 8 — Launch polish: SEO, performance, accessibility, transparency
+
+**Goal:** Ready for the public: discoverable on Google, fast on cheap phones, accessible, open about money, and with real data.
+
+**Needs:** Phase 7.
 
 ### Tasks
 
@@ -391,6 +459,10 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 6.
 - [ ] Error pages and basic uptime check (free monitor, e.g. GitHub Actions cron or UptimeRobot free).
 - [ ] **Replace all sample data with real, verified data** (target at launch: 100+ books, 15+ stores, 3+ import services).
 - [ ] Disclaimer and privacy note (no tracking cookies, no accounts).
+- [ ] `/[locale]/transparency` page: monthly running costs, donations received, and what they paid for (a simple Markdown table in Keystatic is enough).
+- [ ] "Support us" link in the footer (GitHub Sponsors or Open Collective) that explains donations only cover running costs and community activities.
+- [ ] Open data download: `/data/books.json` and `/data/stores.json` generated at build, with the CC BY-SA notice.
+- [ ] Structured data: `Event` on event pages.
 - [ ] Optional: buy and connect a custom domain in Cloudflare.
 - [ ] Launch checklist + announcement post (Facebook groups, Telegram channels for book lovers in Cambodia).
 
@@ -402,14 +474,14 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 6.
 ### Ask Claude
 
 ```
-Read docs/DEVELOPMENT_PHASES.md and implement Phase 7, except the real data entry. Give me a checklist of what I need to do myself for launch.
+Read docs/DEVELOPMENT_PHASES.md and implement Phase 8, except the real data entry. Give me a checklist of what I need to do myself for launch.
 ```
 
 ---
 
-## Phase 8 — Scale up (paid, only when needed)
+## Phase 9 — Scale and sustain (paid only when needed, donation-funded)
 
-**Goal:** Handle growth without rewriting the site. Do only the items whose trigger (see [Cost plan](#cost-plan-free-first-paid-later)) actually happened.
+**Goal:** Handle growth without rewriting the site, and keep the project funded and run fairly as a non-profit. Do only the scaling items whose trigger (see [Cost plan](#cost-plan-free-first-paid-later)) actually happened.
 
 **Needs:** Launched site + a real trigger.
 
@@ -421,17 +493,24 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 7, except the real data entr
 - [ ] **Book requests in D1:** form protected by Cloudflare Turnstile, stored in D1, simple admin view; notify maintainers via Telegram bot.
 - [ ] **Incremental builds:** if full rebuilds get slow (thousands of pages), move high-churn data (availability) to D1 and render those parts at request time with caching.
 - [ ] Error monitoring (Sentry free tier) if needed.
-- [ ] Funding: GitHub Sponsors / Open Collective to cover costs transparently.
+
+### Sustaining the non-profit
+
+- [ ] Funding: GitHub Sponsors or Open Collective (a fiscal host can hold funds for projects that aren't a registered organization). Publish every income and expense on the transparency page.
+- [ ] Governance: `GOVERNANCE.md` describing maintainers, how decisions are made, and how new maintainers join.
+- [ ] Listing policy: `LISTING_POLICY.md` stating that listings are free and equal, what gets removed (fake stores, pirated books), and how disputes are handled.
+- [ ] Legal form (when there is money or partners): decide whether to stay an informal open source project or register a non-profit association in Cambodia. Get local advice before registering; this plan does not cover the legal process.
+- [ ] Partnerships: invite public and community libraries, schools, publishers and Khmer writers' groups to keep their own listings up to date.
 
 ### Ask Claude
 
 ```
-Read docs/DEVELOPMENT_PHASES.md. Our site hit this trigger: <describe what happened, with numbers>. Recommend which Phase 8 items to do and implement them.
+Read docs/DEVELOPMENT_PHASES.md. Our site hit this trigger: <describe what happened, with numbers>. Recommend which Phase 9 items to do and implement them.
 ```
 
 ---
 
-## Phase 9 — Future ideas (backlog)
+## Phase 10 — Future ideas (backlog)
 
 Not planned yet. Promote an idea into its own phase when there is demand.
 
@@ -440,8 +519,8 @@ Not planned yet. Promote an idea into its own phase when there is demand.
 - Map view of stores (Leaflet + OpenStreetMap, free).
 - Wishlists / "notify me when available" (needs accounts and email or Telegram).
 - Telegram bot: send a title, get where to buy it.
-- Book clubs, reading events, and library listings.
-- Open data export (CSV/JSON) of the catalog under CC BY-SA.
+- Book swap board: readers list books they want to give away or exchange (needs moderation).
+- Reading challenges and recommended reading lists by volunteers.
 - Barcode scanning on mobile to look up an ISBN.
 - Import book metadata automatically from Open Library by ISBN.
 
@@ -454,7 +533,8 @@ Record decisions that change or confirm this plan.
 | Date | Phase | Decision | Reason |
 |---|---|---|---|
 | 2026-10-30 | — | Next.js + Keystatic + Cloudflare Workers (OpenNext), free tier first | Initial plan |
-| | | | |
+| 2026-10-30 | All | The site is a non-profit, central hub for Cambodia's book lovers (added Phase 7 community hub and non-profit principles) | Owner's direction |
+| 2026-10-30 | 1+ | Visual style recorded in docs/DESIGN.md: Homix-inspired, Epilogue + Kantumruy Pro, purple `#6357E8` accent | Owner chose the Homix look; accent darkened for contrast |
 
 ## Open questions
 
@@ -462,10 +542,13 @@ Answer these before or during the phase listed.
 
 | Question | Needed by |
 |---|---|
-| Final project name and domain? | Phase 7 (name can change anytime before) |
+| Final project name and domain? | Phase 8 (name can change anytime before) |
+| Donations: GitHub Sponsors, Open Collective, or none until costs exist? | Phase 8 |
+| Stay an informal open source project, or register a non-profit in Cambodia? | Phase 9 (only when there is money or partners) |
 | GitHub Organization name? | Phase 0 |
 | Default language: English or Khmer? | Phase 1 |
 | Show prices, or only "in stock / ask"? Prices go stale fast. | Phase 2 |
 | Can trusted editors publish directly, or must every change be reviewed? | Phase 5 |
 | Who moderates requests and reports (GitHub, Telegram)? | Phase 6 |
+| Who reviews submitted events and book clubs? | Phase 7 |
 | Are import services listed free and equally, or vetted first? | Phase 2 / 6 |
