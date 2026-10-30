@@ -1,6 +1,6 @@
 # Book in Cambodia — Development Phases
 
-> Working name: **Book in Cambodia**. Rename anytime; nothing in this plan depends on it.
+> Name: **Book in Cambodia** · Domain: **[bookincambodia.org](https://bookincambodia.org)**
 
 A **non-profit, open source hub for book lovers in Cambodia**: one central place for readers, bookstores, libraries, writers and volunteers. A visitor can:
 
@@ -53,7 +53,7 @@ Rules for every phase:
 | 5 | Online editing (Keystatic GitHub mode) | Free | Not started |
 | 6 | Contribution features: requests and reports | Free | Not started |
 | 7 | Community hub: events, book clubs, donations, volunteers | Free | Not started |
-| 8 | Launch polish: SEO, performance, accessibility, transparency | Free (domain optional) | Not started |
+| 8 | Launch polish: SEO, performance, accessibility, transparency, domain | Domain ~$10–15/year | Not started |
 | 9 | Scale and sustain (paid only when needed, donation-funded) | ~$5+/month | Not started |
 | 10 | Future ideas (backlog) | Varies | Backlog |
 
@@ -106,9 +106,10 @@ Time-based content (events) is handled the same way: a scheduled GitHub Actions 
 | GitHub (public repo + Actions) | Free, unlimited Actions minutes for public repos | Code, content, CI |
 | Keystatic (GitHub mode) | Free, open source | Editing UI |
 | Cloudflare Web Analytics | Free | Traffic stats |
-| Domain | `*.workers.dev` subdomain is free | Use until launch |
+| Domain | `*.workers.dev` subdomain is free | Use for development and previews; production moves to `bookincambodia.org` in Phase 8 |
+| Email | Cloudflare Email Routing is free | Forward `hello@bookincambodia.org` to a maintainer's inbox |
 
-**Only likely cost before scaling:** a custom domain (about $10–15/year for `.org`; `.com.kh` / `.org.kh` cost more and require local registration paperwork).
+**Only cost before scaling:** the domain **bookincambodia.org**, about $10–15/year. Register it through Cloudflare Registrar (sells at cost, no markup, and DNS is already in Cloudflare). Buy it early so nobody else takes it, even though the site only moves there at launch. Turn on auto-renew so it never lapses.
 
 ### When to move to paid (Phase 9)
 
@@ -134,7 +135,8 @@ Upgrade only when one of these happens, and pay for it from donations (see [Non-
 ### Tasks
 
 - [ ] Decide where the repo lives: personal account now, or create a GitHub Organization (free) and transfer the repo. *(Recommendation: create the org now so links don't change later.)*
-- [ ] Add `README.md` with the project mission and how to run locally.
+- [ ] Add `README.md` with the project mission, the site URL (bookincambodia.org) and how to run locally.
+- [ ] Register **bookincambodia.org** in Cloudflare Registrar with auto-renew (owner does this; the site only moves there in Phase 8).
 - [ ] Add licenses: **MIT** for code (`LICENSE`), **CC BY-SA 4.0** for content/data (`content/LICENSE`).
 - [ ] Add `CODE_OF_CONDUCT.md` (Contributor Covenant) and a short `CONTRIBUTING.md` stub.
 - [ ] **Spike:** create a minimal Next.js app with Keystatic (GitHub mode) and deploy it to Cloudflare Workers with OpenNext on the free plan. Confirm:
@@ -463,7 +465,9 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 7. Use the Community page in
 - [ ] "Support us" link in the footer (GitHub Sponsors or Open Collective) that explains donations only cover running costs and community activities.
 - [ ] Open data download: `/data/books.json` and `/data/stores.json` generated at build, with the CC BY-SA notice.
 - [ ] Structured data: `Event` on event pages.
-- [ ] Optional: buy and connect a custom domain in Cloudflare.
+- [ ] Connect **bookincambodia.org** to the Worker as a custom domain; redirect `www.bookincambodia.org` and the `*.workers.dev` URL to it.
+- [ ] Use `https://bookincambodia.org` as the canonical URL in metadata, sitemap, Open Graph and JSON-LD (one `SITE_URL` setting).
+- [ ] Email Routing: `hello@bookincambodia.org` forwards to the maintainers; use it as the public contact address.
 - [ ] Launch checklist + announcement post (Facebook groups, Telegram channels for book lovers in Cambodia).
 
 ### Done when
@@ -488,7 +492,7 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 8, except the real data entr
 ### Options (pick as needed)
 
 - [ ] **Workers Paid ($5/month):** more requests, more CPU time per request, bigger Worker.
-- [ ] **Covers to R2:** move images out of Git into an R2 bucket on a custom subdomain (e.g. `img.example.org`); Keystatic image field stores the URL. Add Cloudflare Images or Next image loader if resizing is needed.
+- [ ] **Covers to R2:** move images out of Git into an R2 bucket on a custom subdomain (e.g. `img.bookincambodia.org`); Keystatic image field stores the URL. Add Cloudflare Images or Next image loader if resizing is needed.
 - [ ] **Server-side search with D1:** sync content into a D1 database on deploy, query with SQLite FTS5 from an API route. Keep the client-side index as fallback.
 - [ ] **Book requests in D1:** form protected by Cloudflare Turnstile, stored in D1, simple admin view; notify maintainers via Telegram bot.
 - [ ] **Incremental builds:** if full rebuilds get slow (thousands of pages), move high-churn data (availability) to D1 and render those parts at request time with caching.
@@ -535,6 +539,7 @@ Record decisions that change or confirm this plan.
 | 2026-10-30 | — | Next.js + Keystatic + Cloudflare Workers (OpenNext), free tier first | Initial plan |
 | 2026-10-30 | All | The site is a non-profit, central hub for Cambodia's book lovers (added Phase 7 community hub and non-profit principles) | Owner's direction |
 | 2026-10-30 | 1+ | Visual style recorded in docs/DESIGN.md: Homix-inspired, Epilogue + Kantumruy Pro, purple `#6357E8` accent | Owner chose the Homix look; accent darkened for contrast |
+| 2026-10-30 | 8 | Domain: **bookincambodia.org** (Cloudflare Registrar, Email Routing for `hello@`) | Owner's choice; `.org` fits a non-profit and is cheap to keep |
 
 ## Open questions
 
@@ -542,7 +547,6 @@ Answer these before or during the phase listed.
 
 | Question | Needed by |
 |---|---|
-| Final project name and domain? | Phase 8 (name can change anytime before) |
 | Donations: GitHub Sponsors, Open Collective, or none until costs exist? | Phase 8 |
 | Stay an informal open source project, or register a non-profit in Cambodia? | Phase 9 (only when there is money or partners) |
 | GitHub Organization name? | Phase 0 |
