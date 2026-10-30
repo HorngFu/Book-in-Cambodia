@@ -45,7 +45,7 @@ Rules for every phase:
 
 | Phase | Name | Cost | Status |
 |---|---|---|---|
-| 0 | Foundation and technical spike | Free | Not started |
+| 0 | Foundation and technical spike | Free | Done locally (deploy + GitHub login waiting on owner accounts) |
 | 1 | Project scaffold, design system, auto-deploy | Free | Not started |
 | 2 | Content model in Keystatic | Free | Not started |
 | 3 | Public pages | Free | Not started |
@@ -134,17 +134,17 @@ Upgrade only when one of these happens, and pay for it from donations (see [Non-
 
 ### Tasks
 
-- [ ] Decide where the repo lives: personal account now, or create a GitHub Organization (free) and transfer the repo. *(Recommendation: create the org now so links don't change later.)*
-- [ ] Add `README.md` with the project mission, the site URL (bookincambodia.org) and how to run locally.
-- [ ] Register **bookincambodia.org** in Cloudflare Registrar with auto-renew (owner does this; the site only moves there in Phase 8).
-- [ ] Add licenses: **MIT** for code (`LICENSE`), **CC BY-SA 4.0** for content/data (`content/LICENSE`).
-- [ ] Add `CODE_OF_CONDUCT.md` (Contributor Covenant) and a short `CONTRIBUTING.md` stub.
-- [ ] **Spike:** create a minimal Next.js app with Keystatic (GitHub mode) and deploy it to Cloudflare Workers with OpenNext on the free plan. Confirm:
-  - [ ] the public page builds statically and loads from `*.workers.dev`
-  - [ ] `/keystatic` loads and GitHub login works on the deployed site
-  - [ ] saving an entry in Keystatic creates a commit in the repo
-  - [ ] compressed Worker size is under 3 MB (check `wrangler deploy` output)
-- [ ] Record spike results in the [Decision log](#decision-log).
+- [ ] Decide where the repo lives: personal account now, or create a GitHub Organization (free) and transfer the repo. *(Recommendation: create the org now so links don't change later.)* **Owner to do.**
+- [x] Add `README.md` with the project mission, the site URL (bookincambodia.org) and how to run locally.
+- [ ] Register **bookincambodia.org** in Cloudflare Registrar with auto-renew (owner does this; the site only moves there in Phase 8). **Owner to do.**
+- [x] Add licenses: **MIT** for code (`LICENSE`), **CC BY-SA 4.0** for content/data (`content/LICENSE.md`).
+- [x] Add `CODE_OF_CONDUCT.md` (Contributor Covenant) and a short `CONTRIBUTING.md` stub.
+- [x] **Spike:** create a minimal Next.js app with Keystatic and build it for Cloudflare Workers with OpenNext on the free plan. Confirm:
+  - [x] the public page builds statically and is served by the Worker (verified locally with `npm run cf:preview`; deploying to `*.workers.dev` needs the owner's Cloudflare login)
+  - [ ] `/keystatic` loads and GitHub login works on the deployed site. *`/keystatic` loads in the local Worker; GitHub login needs a deploy and the Keystatic GitHub App (owner, Phase 5).*
+  - [ ] saving an entry in Keystatic creates a commit in the repo. *Same: verified in Phase 5.*
+  - [x] compressed Worker size is under 3 MB: **1.18 MB gzip** (`npm run cf:size`)
+- [x] Record spike results in the [Decision log](#decision-log).
 
 **If the spike fails** (Worker too big, or Keystatic's API route doesn't run on Workers), pick a fallback and log it:
 - A. Keystatic in **local mode** only: contributors edit on their own machine and open PRs. Public site can then be a pure static export (fully free, no Worker limits).
@@ -539,6 +539,7 @@ Record decisions that change or confirm this plan.
 | 2026-10-30 | — | Next.js + Keystatic + Cloudflare Workers (OpenNext), free tier first | Initial plan |
 | 2026-10-30 | All | The site is a non-profit, central hub for Cambodia's book lovers (added Phase 7 community hub and non-profit principles) | Owner's direction |
 | 2026-10-30 | 1+ | Visual style recorded in docs/DESIGN.md: Homix-inspired, Epilogue + Kantumruy Pro, purple `#6357E8` accent | Owner chose the Homix look; accent darkened for contrast |
+| 2026-10-30 | 0 | Spike passed locally: Next.js 16.4 + Keystatic 0.6 + OpenNext Cloudflare 1.20 builds; Worker is 1.18 MB gzip (limit 3 MB); prerendered pages served from static assets via `staticAssetsIncrementalCache` (no KV/R2). No middleware: `/` → `/en` is a `next.config` redirect. | Keeps everything on the free plan. Remote deploy and GitHub-mode login still to verify once accounts exist. |
 | 2026-10-30 | 8 | Domain: **bookincambodia.org** (Cloudflare Registrar, Email Routing for `hello@`) | Owner's choice; `.org` fits a non-profit and is cheap to keep |
 
 ## Open questions
