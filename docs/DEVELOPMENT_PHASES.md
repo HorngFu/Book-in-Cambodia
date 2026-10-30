@@ -52,7 +52,7 @@ Rules for every phase:
 | 4 | Search and filters | Free | Done |
 | 5 | Online editing (Keystatic GitHub mode) | Free | Built (switched on once the owner creates the GitHub App) |
 | 6 | Contribution features: requests and reports | Free | Done (Telegram/form links waiting on owner) |
-| 7 | Community hub: events, book clubs, donations, volunteers | Free | Not started |
+| 7 | Community hub: events, book clubs, donations, volunteers | Free | Done (sample data to replace) |
 | 8 | Launch polish: SEO, performance, accessibility, transparency, domain | Domain ~$10–15/year | Not started |
 | 9 | Scale and sustain (paid only when needed, donation-funded) | ~$5+/month | Not started |
 | 10 | Future ideas (backlog) | Varies | Backlog |
@@ -433,13 +433,13 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 6.
 
 ### Tasks
 
-- [ ] Add the new collections to `keystatic.config.ts` and data helpers in `src/lib/content/`.
-- [ ] Build the pages above; add "Community" to the main navigation and a community section on the home page.
-- [ ] Daily scheduled rebuild (GitHub Actions `schedule:` cron) so past events disappear; hide past events client-side too.
-- [ ] "Add to calendar" `.ics` download per event, generated at build time.
-- [ ] Issue Forms: **Submit an event**, **Add a book club**, **Add a place that accepts donated books**.
-- [ ] Mobile bottom tab bar gains a **Community** tab.
-- [ ] Seed data for each new type, clearly marked as sample.
+- [x] Add the new collections (`events`, `bookClubs`, `donationPlaces`, author `cambodian` flag) to `keystatic.config.ts` and data helpers in `src/lib/content.ts`. Event times are Cambodia time (UTC+7) in `src/lib/events.ts`.
+- [x] Build the pages above (`/community`, `/events`, `/events/[slug]`, `/book-clubs`, `/book-clubs/[slug]`, `/donate-books`, `/get-involved`, `/authors` with the Cambodian authors spotlight at the top instead of a `?origin=` filter); add "Community" to the main navigation (also highlighted on its sub-pages) and a community section on the home page.
+- [x] Daily scheduled rebuild at 05:00 Cambodia time (`deploy.yml` cron) so past events move to the archive and expired book drives disappear; past events are also hidden in the browser as soon as they end.
+- [x] "Add to calendar" `.ics` download per event and language (`/[locale]/events/[slug]/event.ics`), generated at build time, RFC 5545 escaping and line folding (tested).
+- [x] Issue Forms: **Submit an event**, **Add a book club**, **Add a place that accepts donated books**; also offered on the Contribute page with Telegram/form/email alternatives.
+- [x] Mobile bottom tab bar gains a **Community** tab (5 tabs).
+- [x] Seed data: 5 events, 3 book clubs, 3 donation places, all made up and flagged `sampleData`; 9 Cambodian authors marked.
 
 ### Done when
 

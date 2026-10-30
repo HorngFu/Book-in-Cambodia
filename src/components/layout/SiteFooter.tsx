@@ -30,6 +30,9 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
             <Link className={linkClass} href={href(locale, paths.importServices)}>
               {dict.nav.abroad}
             </Link>
+            <Link className={linkClass} href={href(locale, paths.authors)}>
+              {dict.authors.titleStart}
+            </Link>
             <Link className={linkClass} href={href(locale, paths.about)}>
               {dict.nav.about}
             </Link>
@@ -51,6 +54,12 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
           </div>
           <div className="flex flex-col gap-2.5">
             <h2 className="text-lg">{dict.footer.nonProfit}</h2>
+            <Link className={linkClass} href={href(locale, paths.community)}>
+              {dict.nav.community}
+            </Link>
+            <Link className={linkClass} href={href(locale, paths.getInvolved)}>
+              {dict.community.volunteer}
+            </Link>
             <a className={linkClass} href={`mailto:${site.email}`}>
               {dict.footer.contact}
             </a>

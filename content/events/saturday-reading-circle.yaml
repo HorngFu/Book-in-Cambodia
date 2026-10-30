@@ -1,0 +1,19 @@
+title: "Saturday Reading Circle"
+titleKm: "រង្វង់អានថ្ងៃសៅរ៍"
+type: "reading-club"
+startDate: 2026-11-14
+startTime: "09:00"
+endTime: "11:00"
+venue: "Riverside Books"
+province: "phnom-penh"
+address: "Sisowath Quay, Daun Penh"
+organizer: "Phnom Penh Readers"
+telegram: "sample_pp_readers"
+isFree: true
+price: "Free"
+languages:
+  - "km"
+  - "en"
+description: "Bring the book you're reading and share a few pages. Everyone is welcome, in Khmer or English."
+descriptionKm: "យកសៀវភៅដែលអ្នកកំពុងអាន ហើយចែករំលែកពីរបីទំព័រ។ សូមស្វាគមន៍គ្រប់គ្នា ជាភាសាខ្មែរ ឬអង់គ្លេស។"
+sampleData: true

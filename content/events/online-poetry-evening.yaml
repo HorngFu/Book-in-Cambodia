@@ -1,0 +1,17 @@
+title: "Khmer Poetry Evening (online)"
+titleKm: "រាត្រីកំណាព្យខ្មែរ (អនឡាញ)"
+type: "reading-club"
+startDate: 2026-12-12
+startTime: "19:00"
+endTime: "20:30"
+province: "online"
+onlineUrl: "https://example.org/sample-online-event"
+organizer: "Read Together"
+telegram: "sample_read_together"
+isFree: true
+price: "Free"
+languages:
+  - "km"
+description: "Read a favourite Khmer poem aloud or just listen. Krom Ngoy, Tum Teav and new poets welcome."
+descriptionKm: "អានកំណាព្យខ្មែរដែលអ្នកចូលចិត្ត ឬគ្រាន់តែស្តាប់។ សូមស្វាគមន៍ ក្រម ង៉ុយ ទុំទាវ និងកវីថ្មីៗ។"
+sampleData: true

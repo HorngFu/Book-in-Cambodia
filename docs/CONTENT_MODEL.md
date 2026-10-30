@@ -64,14 +64,30 @@ Any field ending in `Km` is the optional Khmer version. Khmer pages fall back to
 
 `name`, `nameKm`, `logo`, `basedIn` (province), `deliversNationwide`, `description`, `descriptionKm`, `sources` (list, e.g. "Amazon US"), `deliveryTime`, `fees`, contact fields (as stores), `lastVerified`, `sampleData`.
 
+### Events — `content/events/<slug>.yaml` (Phase 7)
+
+`title`, `titleKm`, `type` (book fair, reading club, author talk, book swap, workshop, kids, other), `startDate` (required), `startTime` / `endTime` (24-hour Cambodia time, e.g. `09:00`; no start time = all-day), `endDate` (multi-day events), `venue`, `province` (or `online`), `address`, `mapsUrl`, `onlineUrl`, `organizer`, `telegram`, `facebook`, `isFree`, `price`, `languages`, `description` (+ Khmer), `cover`, `sampleData`.
+
+Past events leave the upcoming list automatically (daily rebuild, and in the browser as soon as they end).
+
+### Book clubs — `content/book-clubs/<slug>.yaml`
+
+`name`, `nameKm`, `province` (or `online`), `languages`, `meets` (+ Khmer), `where`, `reads` (+ Khmer), `joinUrl`, `telegram`, `description` (+ Khmer), `lastVerified`, `sampleData`.
+
+### Places that accept books — `content/donation-places/<slug>.yaml`
+
+`name`, `nameKm`, `type` (community library, school, NGO, book drive), `province`, `address`, `mapsUrl`, `needs` (Khmer children's books, Khmer books, English learning, dictionaries, textbooks, novels, any), `needsNotes`, `notAccepted`, `howToGive` (+ Khmer), `until` (book drives; hidden after this day), contact fields, `lastVerified`, `sampleData`.
+
+Authors also have a `cambodian` checkbox for the Cambodian authors spotlight.
+
 ## Singletons
 
-- **Site settings** — `content/settings/site.yaml`: `tagline`, `telegram`, `facebook`, `disclaimer` (+ Khmer).
+- **Site settings** — `content/settings/site.yaml`: `tagline`, `telegram` and `contactFormUrl` (non-GitHub contribution options on the Contribute page), `facebook`, `disclaimer` (+ Khmer).
 - **About page** — `content/pages/about.yaml`: `intro` and a list of `sections` (`heading`, `body`, + Khmer).
 
 ## Sample data
 
-The books, authors and categories in the seed are real. **All stores and import services are made up** and marked `sampleData: true`, as are their prices and dates. Replace them with verified listings before launch (Phase 8).
+The books, authors and categories in the seed are real. **All stores, import services, events, book clubs and donation places are made up** and marked `sampleData: true`, as are their prices and dates. Replace them with verified listings before launch (Phase 8).
 
 ## Checks
 

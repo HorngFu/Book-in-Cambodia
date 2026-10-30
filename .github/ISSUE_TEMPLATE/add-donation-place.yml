@@ -1,0 +1,47 @@
+name: 🎁 Add a place that needs books
+description: A community library, school, NGO or book drive that welcomes donated books.
+title: "Accepts books: "
+labels: ["donation-place", "needs-verification"]
+body:
+  - type: input
+    id: place_name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [Community library, School, NGO, Book drive]
+    validations:
+      required: true
+  - type: input
+    id: province
+    attributes:
+      label: Province and address
+    validations:
+      required: true
+  - type: textarea
+    id: needs
+    attributes:
+      label: Which books do you need? Which can't you accept?
+    validations:
+      required: true
+  - type: textarea
+    id: how_to_give
+    attributes:
+      label: How can people give? (drop-off hours, bus parcel, until when)
+  - type: input
+    id: contact
+    attributes:
+      label: Public contact (Telegram, Facebook or phone)
+    validations:
+      required: true
+  - type: dropdown
+    id: relation
+    attributes:
+      label: How are you connected to this place?
+      options: [I run or work there, I volunteer there, Someone I know does]
+    validations:
+      required: true

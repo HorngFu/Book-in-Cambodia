@@ -5,12 +5,21 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-export type NavItem = { href: string; label: string; icon?: ReactNode; exact?: boolean };
+export type NavItem = {
+  href: string;
+  label: string;
+  icon?: ReactNode;
+  exact?: boolean;
+  /** Other sections that belong under this item (e.g. events under Community). */
+  also?: string[];
+};
+
+const within = (pathname: string, base: string) =>
+  pathname === base || pathname.startsWith(`${base}/`);
 
 function isActive(pathname: string, item: NavItem) {
-  return item.exact
-    ? pathname === item.href
-    : pathname === item.href || pathname.startsWith(`${item.href}/`);
+  if (item.exact) return pathname === item.href;
+  return within(pathname, item.href) || (item.also ?? []).some((p) => within(pathname, p));
 }
 
 export function NavLinks({ items, label }: { items: NavItem[]; label: string }) {

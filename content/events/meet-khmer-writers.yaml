@@ -1,0 +1,17 @@
+title: "Meet Khmer Writers"
+titleKm: "ជួបអ្នកនិពន្ធខ្មែរ"
+type: "author-talk"
+startDate: 2026-11-28
+startTime: "14:00"
+endTime: "16:00"
+venue: "Capital Reading Library"
+province: "phnom-penh"
+address: "Street 51, Daun Penh"
+organizer: "Capital Reading Library"
+isFree: true
+price: "Free"
+languages:
+  - "km"
+description: "Young Khmer writers talk about writing and publishing in Cambodia, followed by questions."
+descriptionKm: "អ្នកនិពន្ធខ្មែរវ័យក្មេងនិយាយអំពីការសរសេរ និងការបោះពុម្ពនៅកម្ពុជា បន្ទាប់មកមានការសួរសំណួរ។"
+sampleData: true

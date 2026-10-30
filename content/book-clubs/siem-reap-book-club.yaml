@@ -1,0 +1,16 @@
+name: "Siem Reap Book Club"
+nameKm: "ក្លឹបសៀវភៅសៀមរាប"
+province: "siem-reap"
+languages:
+  - "km"
+  - "en"
+meets: "Last Friday of the month, 18:00"
+meetsKm: "ថ្ងៃសុក្រចុងក្រោយនៃខែ ម៉ោង ១៨:០០"
+where: "Old Market area"
+reads: "History and memoir"
+readsKm: "ប្រវត្តិសាស្ត្រ និងជីវប្រវត្តិ"
+telegram: "sample_sr_book_club"
+description: "Readers in Siem Reap who meet monthly; new members always welcome."
+descriptionKm: "អ្នកអាននៅសៀមរាប ដែលជួបគ្នាប្រចាំខែ។ សមាជិកថ្មីតែងតែត្រូវបានស្វាគមន៍។"
+lastVerified: 2026-09-30
+sampleData: true

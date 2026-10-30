@@ -1,0 +1,15 @@
+name: "Village Community Library"
+nameKm: "បណ្ណាល័យសហគមន៍ភូមិ"
+type: "community-library"
+province: "kampong-cham"
+address: "Near the pagoda, Kampong Cham"
+needs:
+  - "khmer-childrens"
+  - "khmer-books"
+needsNotes: "Picture books for young children are most needed."
+notAccepted: "Damaged books, magazines"
+howToGive: "Drop off at the library, or send by bus parcel to Kampong Cham and message us the parcel number on Telegram."
+howToGiveKm: "យកមកដាក់នៅបណ្ណាល័យ ឬផ្ញើតាមឡានក្រុងទៅកំពង់ចាម ហើយផ្ញើលេខកញ្ចប់មកយើងតាម Telegram។"
+telegram: "sample_village_library"
+lastVerified: 2026-10-10
+sampleData: true

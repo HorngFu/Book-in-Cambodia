@@ -5,7 +5,14 @@
 import { site } from "@/config/site";
 
 export type IssueForm =
-  "request-book" | "add-listing" | "add-store" | "add-import-service" | "report-problem";
+  | "request-book"
+  | "add-listing"
+  | "add-store"
+  | "add-import-service"
+  | "report-problem"
+  | "submit-event"
+  | "add-book-club"
+  | "add-donation-place";
 
 export function issueFormUrl(
   form: IssueForm,
@@ -32,6 +39,9 @@ export const forms = {
     }),
   addStore: (name?: string) => issueFormUrl("add-store", `Add store: ${name ?? ""}`),
   addImportService: () => issueFormUrl("add-import-service", "Add import service: "),
+  submitEvent: () => issueFormUrl("submit-event", "Event: "),
+  addBookClub: () => issueFormUrl("add-book-club", "Book club: "),
+  addDonationPlace: () => issueFormUrl("add-donation-place", "Accepts books: "),
   reportProblem: (pageUrl: string, what?: string) =>
     issueFormUrl("report-problem", `Wrong info: ${what ?? ""}`, { page_url: pageUrl }),
 };

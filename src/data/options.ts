@@ -79,3 +79,38 @@ export type StoreTypeValue = (typeof storeTypes)[number]["value"];
 export type BookLanguageValue = (typeof bookLanguages)[number]["value"];
 export type BookFormatValue = (typeof bookFormats)[number]["value"];
 export type StockValue = (typeof stockStates)[number]["value"];
+
+export const eventTypes = [
+  { value: "book-fair", en: "Book fair", km: "ពិព័រណ៍សៀវភៅ" },
+  { value: "reading-club", en: "Reading club", km: "ក្លឹបអានសៀវភៅ" },
+  { value: "author-talk", en: "Author talk", km: "ជួបអ្នកនិពន្ធ" },
+  { value: "book-swap", en: "Book swap", km: "ប្តូរសៀវភៅ" },
+  { value: "workshop", en: "Workshop", km: "សិក្ខាសាលា" },
+  { value: "kids", en: "For kids", km: "សម្រាប់កុមារ" },
+  { value: "other", en: "Other", km: "ផ្សេងទៀត" },
+] as const;
+
+export const donationPlaceTypes = [
+  { value: "community-library", en: "Community library", km: "បណ្ណាល័យសហគមន៍" },
+  { value: "school", en: "School", km: "សាលារៀន" },
+  { value: "ngo", en: "NGO", km: "អង្គការ" },
+  { value: "book-drive", en: "Book drive", km: "យុទ្ធនាការប្រមូលសៀវភៅ" },
+] as const;
+
+export const donationNeeds = [
+  { value: "khmer-childrens", en: "Khmer children's books", km: "សៀវភៅកុមារជាភាសាខ្មែរ" },
+  { value: "khmer-books", en: "Khmer books", km: "សៀវភៅខ្មែរ" },
+  { value: "english-learning", en: "English learning books", km: "សៀវភៅរៀនភាសាអង់គ្លេស" },
+  { value: "dictionaries", en: "Dictionaries", km: "វចនានុក្រម" },
+  { value: "textbooks", en: "School textbooks", km: "សៀវភៅសិក្សា" },
+  { value: "novels", en: "Novels", km: "ប្រលោមលោក" },
+  { value: "any", en: "Any books in good condition", km: "សៀវភៅណាក៏បាន ឱ្យតែល្អ" },
+] as const;
+
+/** Keystatic multiselect options (English labels in the editor). */
+export function multiselectOptions<T extends readonly Option[]>(list: T) {
+  return list.map(({ value, en }) => ({ label: en, value })) as {
+    label: string;
+    value: T[number]["value"];
+  }[];
+}

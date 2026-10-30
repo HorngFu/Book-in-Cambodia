@@ -1,0 +1,17 @@
+title: "Children's Story Hour"
+titleKm: "ម៉ោងនិទានរឿងសម្រាប់កុមារ"
+type: "kids"
+startDate: 2026-12-05
+startTime: "09:30"
+endTime: "10:30"
+venue: "Battambang Reading Room"
+province: "battambang"
+address: "Near the riverside, Battambang town"
+organizer: "Battambang Reading Room"
+isFree: true
+price: "Free"
+languages:
+  - "km"
+description: "Picture-book reading in Khmer for children aged 4 to 8, with drawing afterwards."
+descriptionKm: "អានសៀវភៅរូបភាពជាភាសាខ្មែរ សម្រាប់កុមារអាយុពី ៤ ដល់ ៨ ឆ្នាំ ហើយគូររូបបន្ទាប់ពីនោះ។"
+sampleData: true

@@ -1,0 +1,15 @@
+name: "Rural School Book Drive"
+nameKm: "យុទ្ធនាការប្រមូលសៀវភៅសម្រាប់សាលាជនបទ"
+type: "book-drive"
+province: "phnom-penh"
+address: "Collection point in Toul Kork, Phnom Penh"
+needs:
+  - "textbooks"
+  - "novels"
+  - "khmer-books"
+howToGive: "Bring books to the collection point. Books are delivered to rural schools in January."
+howToGiveKm: "យកសៀវភៅមកកន្លែងប្រមូល។ សៀវភៅនឹងត្រូវដឹកជញ្ជូនទៅសាលារៀនជនបទនៅខែមករា។"
+until: 2026-12-31
+telegram: "sample_book_drive"
+lastVerified: 2026-10-25
+sampleData: true

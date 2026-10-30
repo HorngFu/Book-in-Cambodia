@@ -16,7 +16,8 @@
     "main": "Main",
     "breadcrumb": "Breadcrumb",
     "skipToContent": "Skip to content",
-    "contributeLong": "How to help"
+    "contributeLong": "How to help",
+    "community": "Community"
   },
   "search": {
     "label": "Search books",
@@ -262,6 +263,150 @@
     "codeText": "Designers, developers and translators: the website is open source.",
     "codeCta": "Contributing guide",
     "reportPage": "Report a problem with this page",
-    "noGithub": "No GitHub account? More ways to help"
+    "noGithub": "No GitHub account? More ways to help",
+    "eventTitle": "Submit an event",
+    "eventText": "A book fair, reading, author talk or swap? List it for free.",
+    "clubTitle": "Add a book club",
+    "clubText": "Run or join a reading group? Add it so others can find it.",
+    "donationTitle": "Add a place that needs books",
+    "donationText": "A library, school or book drive that welcomes donated books?"
+  },
+  "community": {
+    "badge": "Book lovers' community",
+    "titleStart": "Cambodia's book lovers,",
+    "titleAccent": "in one place",
+    "lead": "Events, book clubs, places that need donated books, and ways to help. Run by volunteers as a non-profit.",
+    "submitEvent": "Submit an event",
+    "volunteer": "Volunteer with us",
+    "onThisPage": "On this page",
+    "homeStart": "A home for Cambodia's",
+    "homeAccent": "book lovers",
+    "homeLead": "Meet other readers, give books to people who need them, and help keep this site up to date.",
+    "upcomingEvents": "Upcoming events",
+    "allEvents": "All events",
+    "clubsCardText": "Reading groups in Khmer and English, in person and online. Find one near you or start your own.",
+    "findClub": "Find a book club",
+    "donateCardTitle": "Give books",
+    "donateCardText": "Community libraries and schools that welcome donated books, and what each one needs.",
+    "whereToDonate": "Where to donate",
+    "npBadge": "Non-profit, by design",
+    "npTitle": "Built for readers, not for profit",
+    "principles": [
+      {
+        "title": "No ads, no commissions",
+        "text": "We never take a cut from stores or import services."
+      },
+      {
+        "title": "Every listing is free and equal",
+        "text": "No one can pay to be shown first."
+      },
+      {
+        "title": "Open code, open data",
+        "text": "Anyone can reuse the catalog and the code."
+      },
+      {
+        "title": "Run by volunteers",
+        "text": "Readers, stores and librarians keep the information up to date."
+      }
+    ],
+    "aboutUs": "About Book in Cambodia"
+  },
+  "events": {
+    "titleStart": "Book",
+    "titleAccent": "events",
+    "lead": "Book fairs, reading circles, author talks and book swaps across Cambodia and online.",
+    "upcomingStart": "Upcoming",
+    "upcomingAccent": "events",
+    "none": "No upcoming events right now. Organizing one? Submit it. It's free.",
+    "past": "Past events",
+    "free": "Free",
+    "when": "When",
+    "where": "Where",
+    "online": "Online",
+    "organizer": "Organizer",
+    "languages": "Languages",
+    "addToCalendar": "Add to calendar",
+    "details": "Details",
+    "joinOnline": "Join online",
+    "contactOrganizer": "Contact the organizer",
+    "submit": "Submit your event",
+    "submitText": "Organizing a book fair, reading, talk or swap? Submit it. Listing is free.",
+    "type": "Type"
+  },
+  "clubs": {
+    "titleStart": "Book",
+    "titleAccent": "clubs",
+    "lead": "Reading groups in Khmer and English, in person and online.",
+    "meets": "Meets",
+    "where": "Where",
+    "reads": "Reads",
+    "join": "Join",
+    "joinTelegram": "Join on Telegram",
+    "add": "Add your club",
+    "none": "No book clubs listed here yet.",
+    "start": "Start a book club",
+    "startText": "No club near you? Start one with two friends and a book, then add it here so others can join."
+  },
+  "donate": {
+    "titleStart": "Donate",
+    "titleAccent": "books",
+    "lead": "Places that welcome donated books. Check what they need before you bring them.",
+    "needs": "Needs",
+    "notAccepted": "Please don't bring",
+    "howToGive": "How to give",
+    "until": "Collecting until {date}",
+    "contactFirst": "Contact before donating",
+    "add": "Need books for your library or school? Get listed",
+    "none": "No places listed here yet.",
+    "tipsTitle": "Before you donate",
+    "tips": [
+      "Only give books in good condition: clean, complete, readable.",
+      "Ask first. Many libraries need specific books, like Khmer picture books.",
+      "Books in Khmer are almost always the most wanted."
+    ]
+  },
+  "involved": {
+    "titleStart": "Get",
+    "titleAccent": "involved",
+    "lead": "This site is built and kept up to date by volunteers. A few minutes a week helps.",
+    "roles": [
+      {
+        "title": "Add books",
+        "text": "Add books you see in stores, with price and date.",
+        "cta": "Start adding"
+      },
+      {
+        "title": "Check store details",
+        "text": "Call or visit a store and confirm its details.",
+        "cta": "Report or confirm"
+      },
+      {
+        "title": "Translate to Khmer",
+        "text": "Help make every page natural and correct in Khmer.",
+        "cta": "Help translate"
+      },
+      {
+        "title": "Organize a reading event",
+        "text": "Host a reading circle, book swap or story hour.",
+        "cta": "Submit an event"
+      },
+      {
+        "title": "Build the site",
+        "text": "Designers and developers: the code is open source.",
+        "cta": "Contributing guide"
+      }
+    ],
+    "waysTitle": "All the ways to contribute"
+  },
+  "authors": {
+    "titleStart": "Authors",
+    "lead": "Writers in the catalog, starting with Cambodian authors.",
+    "cambodianStart": "Cambodian",
+    "cambodianAccent": "authors",
+    "cambodianLead": "Khmer classics and Cambodian voices, from Krom Ngoy and Nou Hach to today.",
+    "allStart": "All",
+    "allAccent": "authors",
+    "booksOne": "1 book",
+    "booksOther": "{count} books"
   }
 }

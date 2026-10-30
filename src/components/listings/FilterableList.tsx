@@ -4,7 +4,16 @@ import { useMemo, useState, type ReactNode } from "react";
 import { chipClasses } from "@/components/ui/Chip";
 import { cn } from "@/lib/cn";
 
-export type FilterItem = { key: string; tags: Record<string, string>; content: ReactNode };
+/** A tag may hold several values (e.g. a club's languages); any of them matches. */
+export type FilterItem = {
+  key: string;
+  tags: Record<string, string | string[]>;
+  content: ReactNode;
+};
+
+function matches(tag: string | string[] | undefined, value: string) {
+  return Array.isArray(tag) ? tag.includes(value) : tag === value;
+}
 export type FilterGroup = {
   name: string;
   label: string;
@@ -39,7 +48,9 @@ export function FilterableList({
   const visible = useMemo(
     () =>
       items.filter((item) =>
-        Object.entries(selected).every(([group, value]) => !value || item.tags[group] === value),
+        Object.entries(selected).every(
+          ([group, value]) => !value || matches(item.tags[group], value),
+        ),
       ),
     [items, selected],
   );

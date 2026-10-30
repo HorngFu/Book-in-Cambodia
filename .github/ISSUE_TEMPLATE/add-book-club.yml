@@ -1,0 +1,40 @@
+name: 👥 Add a book club
+description: A reading group, in person or online, that others can join.
+title: "Book club: "
+labels: ["book-club", "needs-verification"]
+body:
+  - type: input
+    id: club_name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: input
+    id: province
+    attributes:
+      label: Province, or "online"
+    validations:
+      required: true
+  - type: input
+    id: meets
+    attributes:
+      label: When do you meet?
+      placeholder: e.g. Every 2nd Saturday, 9:00
+  - type: input
+    id: where
+    attributes:
+      label: Where?
+  - type: input
+    id: languages
+    attributes:
+      label: Languages
+  - type: input
+    id: reads
+    attributes:
+      label: What do you read?
+  - type: input
+    id: join
+    attributes:
+      label: How to join (public Telegram/Facebook group or form)
+    validations:
+      required: true

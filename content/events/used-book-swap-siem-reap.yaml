@@ -1,0 +1,20 @@
+title: "Used Book Swap"
+titleKm: "ប្តូរសៀវភៅជជុះ"
+type: "book-swap"
+startDate: 2026-11-22
+startTime: "08:00"
+endTime: "12:00"
+venue: "Old Market Book Corner"
+province: "siem-reap"
+address: "Old Market area, Siem Reap town"
+organizer: "Old Market Book Corner"
+telegram: "sample_old_market_books"
+isFree: true
+price: "Free, bring a book"
+languages:
+  - "km"
+  - "en"
+  - "fr"
+description: "Bring books you've finished and swap them for new ones. Leftover books go to a community library."
+descriptionKm: "យកសៀវភៅដែលអ្នកអានរួច មកប្តូរយកសៀវភៅថ្មី។ សៀវភៅដែលនៅសល់ នឹងផ្តល់ទៅបណ្ណាល័យសហគមន៍។"
+sampleData: true

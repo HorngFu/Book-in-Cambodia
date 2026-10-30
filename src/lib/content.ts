@@ -133,3 +133,39 @@ export async function getLookups() {
 
 export const getSiteSettings = memo(() => reader.singletons.siteSettings.readOrThrow());
 export const getAboutPage = memo(() => reader.singletons.aboutPage.readOrThrow());
+
+// ---------- Community (Phase 7) ----------
+
+export type CommunityEvent = WithSlug<Entry<Collections["events"]>>;
+export type BookClub = WithSlug<Entry<Collections["bookClubs"]>>;
+export type DonationPlace = WithSlug<Entry<Collections["donationPlaces"]>>;
+
+/** All events, soonest first. Use splitEvents() from src/lib/events.ts for upcoming/past. */
+export const getAllEvents = memo(async (): Promise<CommunityEvent[]> => {
+  const all = await reader.collections.events.all();
+  return all
+    .map(({ slug, entry }) => ({ ...entry, slug }))
+    .sort(
+      (a, b) =>
+        a.startDate.localeCompare(b.startDate) ||
+        (a.startTime ?? "").localeCompare(b.startTime ?? ""),
+    );
+});
+
+export async function getEvent(slug: string) {
+  return (await getAllEvents()).find((e) => e.slug === slug);
+}
+
+export const getAllBookClubs = memo(async (): Promise<BookClub[]> => {
+  const all = await reader.collections.bookClubs.all();
+  return all.map(({ slug, entry }) => ({ ...entry, slug })).sort(byName);
+});
+
+export async function getBookClub(slug: string) {
+  return (await getAllBookClubs()).find((c) => c.slug === slug);
+}
+
+export const getAllDonationPlaces = memo(async (): Promise<DonationPlace[]> => {
+  const all = await reader.collections.donationPlaces.all();
+  return all.map(({ slug, entry }) => ({ ...entry, slug })).sort(byName);
+});

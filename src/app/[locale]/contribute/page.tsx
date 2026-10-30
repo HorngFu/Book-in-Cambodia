@@ -1,4 +1,15 @@
-import { BookPlus, Code, Flag, MapPin, Package, PenLine, Search } from "lucide-react";
+import {
+  BookPlus,
+  CalendarHeart,
+  Code,
+  Flag,
+  Heart,
+  MapPin,
+  Package,
+  PenLine,
+  Search,
+  Users,
+} from "lucide-react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Container, PageHero } from "@/components/layout/PageHero";
@@ -66,6 +77,30 @@ export default async function ContributePage({ params }: { params: LocaleParams 
       text: c.addServiceText,
       github: forms.addImportService(),
       emailSubject: "Add an import service",
+    },
+    {
+      id: "event",
+      icon: <CalendarHeart {...icon} />,
+      title: c.eventTitle,
+      text: c.eventText,
+      github: forms.submitEvent(),
+      emailSubject: "Event",
+    },
+    {
+      id: "club",
+      icon: <Users {...icon} />,
+      title: c.clubTitle,
+      text: c.clubText,
+      github: forms.addBookClub(),
+      emailSubject: "Book club",
+    },
+    {
+      id: "donation",
+      icon: <Heart {...icon} />,
+      title: c.donationTitle,
+      text: c.donationText,
+      github: forms.addDonationPlace(),
+      emailSubject: "A place that needs books",
     },
     {
       id: "report",

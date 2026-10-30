@@ -1,4 +1,4 @@
-import { Home, MapPin, Package, Search } from "lucide-react";
+import { Home, MapPin, Package, Search, Users } from "lucide-react";
 import type { Metadata } from "next";
 import { Epilogue, Kantumruy_Pro } from "next/font/google";
 import type { ReactNode } from "react";
@@ -61,6 +61,13 @@ export default async function LocaleLayout({
     { href: href(locale, paths.books), label: dict.nav.books },
     { href: href(locale, paths.stores), label: dict.nav.stores },
     { href: href(locale, paths.importServices), label: dict.nav.abroad },
+    {
+      href: href(locale, paths.community),
+      label: dict.nav.community,
+      also: [paths.events, paths.bookClubs, paths.donateBooks, paths.getInvolved].map((p) =>
+        href(locale, p),
+      ),
+    },
   ];
 
   const iconProps = { size: 22, strokeWidth: 2, "aria-hidden": true } as const;
@@ -72,6 +79,14 @@ export default async function LocaleLayout({
       href: href(locale, paths.importServices),
       label: dict.nav.abroadShort,
       icon: <Package {...iconProps} />,
+    },
+    {
+      href: href(locale, paths.community),
+      label: dict.nav.community,
+      icon: <Users {...iconProps} />,
+      also: [paths.events, paths.bookClubs, paths.donateBooks, paths.getInvolved].map((p) =>
+        href(locale, p),
+      ),
     },
   ];
 

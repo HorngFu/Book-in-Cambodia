@@ -1,0 +1,16 @@
+name: "Phnom Penh Readers"
+nameKm: "អ្នកអានភ្នំពេញ"
+province: "phnom-penh"
+languages:
+  - "en"
+  - "km"
+meets: "Every 2nd Saturday, 9:00"
+meetsKm: "រៀងរាល់ថ្ងៃសៅរ៍ទី២ ម៉ោង ៩:០០"
+where: "Riverside Books, Daun Penh"
+reads: "Novels and non-fiction"
+readsKm: "ប្រលោមលោក និងសៀវភៅចំណេះដឹង"
+telegram: "sample_pp_readers"
+description: "A friendly group that picks one book a month and meets to talk about it."
+descriptionKm: "ក្រុមរួសរាយរាក់ទាក់ ដែលជ្រើសសៀវភៅមួយក្បាលក្នុងមួយខែ ហើយជួបគ្នាដើម្បីពិភាក្សា។"
+lastVerified: 2026-10-15
+sampleData: true

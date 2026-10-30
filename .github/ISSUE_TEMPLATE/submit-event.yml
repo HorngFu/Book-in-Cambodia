@@ -1,0 +1,51 @@
+name: 📅 Submit an event
+description: A book fair, reading circle, author talk, book swap or workshop. Listing is free.
+title: "Event: "
+labels: ["event", "needs-verification"]
+body:
+  - type: input
+    id: event_title
+    attributes:
+      label: Event name
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [Book fair, Reading club, Author talk, Book swap, Workshop, For kids, Other]
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: Date and time (Cambodia time)
+      placeholder: e.g. Sat 14 Nov 2026, 9:00–11:00
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Venue and address, or online link
+    validations:
+      required: true
+  - type: input
+    id: price
+    attributes:
+      label: Price
+      placeholder: e.g. Free, or $5
+  - type: input
+    id: languages
+    attributes:
+      label: Languages
+      placeholder: e.g. Khmer and English
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+  - type: input
+    id: organizer
+    attributes:
+      label: Organizer and public contact (Telegram or Facebook)
+    validations:
+      required: true

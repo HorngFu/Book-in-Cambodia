@@ -21,4 +21,12 @@ export const paths = {
   category: (slug: string) => `/categories/${slug}`,
   about: "/about",
   contribute: "/contribute",
+  community: "/community",
+  events: "/events",
+  event: (slug: string) => `/events/${slug}`,
+  eventIcs: (slug: string) => `/events/${slug}/event.ics`,
+  bookClubs: "/book-clubs",
+  bookClub: (slug: string) => `/book-clubs/${slug}`,
+  donateBooks: "/donate-books",
+  getInvolved: "/get-involved",
 } as const;

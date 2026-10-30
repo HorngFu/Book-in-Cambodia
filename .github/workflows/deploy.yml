@@ -12,6 +12,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Daily rebuild at 05:00 Cambodia time so past events drop off and
+  # "may be outdated" labels stay current.
+  schedule:
+    - cron: "0 22 * * *"
 
 concurrency:
   group: deploy-production

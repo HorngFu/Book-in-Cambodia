@@ -1,0 +1,13 @@
+name: "Battambang Reading Room"
+nameKm: "បន្ទប់អានបាត់ដំបង"
+type: "community-library"
+province: "battambang"
+address: "Near the riverside, Battambang town"
+needs:
+  - "english-learning"
+  - "dictionaries"
+notAccepted: "Old textbooks with answers written in"
+howToGive: "Drop off Monday to Saturday, 8:00–17:00."
+howToGiveKm: "យកមកដាក់ពីថ្ងៃច័ន្ទ ដល់ថ្ងៃសៅរ៍ ម៉ោង ៨:០០–១៧:០០។"
+lastVerified: 2026-08-20
+sampleData: true
