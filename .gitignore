@@ -21,3 +21,6 @@ next-env.d.ts
 .DS_Store
 *.log
 coverage/
+
+# local tool config
+.claude/

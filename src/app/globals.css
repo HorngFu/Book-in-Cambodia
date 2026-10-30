@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* Design tokens: see docs/DESIGN.md */
+@theme {
+  --color-ink: #1b1b1b;
+  --color-body: #6b6b6b;
+  --color-body-strong: #4d4d4d;
+  --color-primary: #6357e8;
+  --color-primary-hover: #4b3fd6;
+  --color-primary-tint: #f1f0fe;
+  --color-primary-soft: #c6c1f9;
+  --color-surface: #f7f7f7;
+  --color-control: #f4f4f4;
+  --color-line: #e8e8e8;
+  --color-line-input: #e0e0e0;
+  --color-line-divider: #ededed;
+
+  --color-ok: #18794e;
+  --color-ok-bg: #e8f7ee;
+  --color-warn: #8a5300;
+  --color-warn-bg: #fff4e0;
+  --color-stale: #b42318;
+
+  /* Decorative palette (book spines, placeholder covers) */
+  --color-amber: #ffb547;
+  --color-coral: #ff8a65;
+  --color-navy: #2e2a5c;
+  --color-lilac: #8d84f4;
+
+  --font-sans: var(--font-epilogue), var(--font-kantumruy), system-ui, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+
+  --shadow-card: 0 10px 40px rgb(27 27 27 / 0.08);
+  --shadow-float: 0 16px 48px rgb(27 27 27 / 0.1);
+
+  --tracking-tightest: -0.05em;
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-base leading-relaxed tracking-tight text-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold text-ink;
+  }
+
+  a {
+    @apply text-primary transition-colors hover:text-primary-hover;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+}
+
+/* Khmer: no negative tracking, and extra line height so stacked vowels don't clip. */
+@layer utilities {
+  :lang(km) {
+    letter-spacing: 0 !important;
+  }
+
+  :lang(km) p,
+  :lang(km) li,
+  :lang(km) dd {
+    line-height: 1.75;
+  }
+
+  :lang(km) h1,
+  :lang(km) h2,
+  :lang(km) h3 {
+    line-height: 1.4;
+  }
+}

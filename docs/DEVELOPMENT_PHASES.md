@@ -46,7 +46,7 @@ Rules for every phase:
 | Phase | Name | Cost | Status |
 |---|---|---|---|
 | 0 | Foundation and technical spike | Free | Done locally (deploy + GitHub login waiting on owner accounts) |
-| 1 | Project scaffold, design system, auto-deploy | Free | Not started |
+| 1 | Project scaffold, design system, auto-deploy | Free | Done (auto-deploy waits on Cloudflare secrets) |
 | 2 | Content model in Keystatic | Free | Not started |
 | 3 | Public pages | Free | Not started |
 | 4 | Search and filters | Free | Not started |
@@ -171,17 +171,19 @@ Read docs/DEVELOPMENT_PHASES.md and do Phase 0. Start with the repo basics (READ
 
 ### Tasks
 
-- [ ] Next.js (App Router, TypeScript strict), ESLint, Prettier.
-- [ ] Tailwind CSS with the design tokens from [docs/DESIGN.md](DESIGN.md) (colors, radii, shadows, type scale).
-- [ ] Fonts: **Epilogue** (Latin) + **Kantumruy Pro** (Khmer), self-hosted via `next/font`.
-- [ ] i18n routing for `/en` and `/km` (e.g. `next-intl`), with UI strings in `messages/en.json` and `messages/km.json`. Default locale: decide in this phase.
-- [ ] Base layout following DESIGN.md: header (logo, nav, language switch, Contribute button), footer (explore, contribute, non-profit links, license), mobile bottom tab bar.
-- [ ] Reusable UI components from DESIGN.md: Button (primary, dark, outline, soft), SearchBar, Chip, Badge, Card, BookCard, SectionHeader, CtaBand, Input, Select, EmptyState.
-- [ ] OpenNext + `wrangler.jsonc` config; `images.unoptimized = true` for now.
-- [ ] GitHub Actions:
-  - [ ] `ci.yml`: lint, type-check, build on every PR
-  - [ ] `deploy.yml`: build and `wrangler deploy` on push to `main` (uses `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets)
-- [ ] Placeholder home page in both languages.
+- [x] Next.js (App Router, TypeScript strict), ESLint, Prettier.
+- [x] Tailwind CSS with the design tokens from [docs/DESIGN.md](DESIGN.md) (colors, radii, shadows, type scale). Tailwind v4: tokens live in `@theme` in `src/app/globals.css`.
+- [x] Fonts: **Epilogue** (Latin) + **Kantumruy Pro** (Khmer), self-hosted via `next/font`.
+- [x] i18n routing for `/en` and `/km` with UI strings in `src/i18n/messages/en.json` and `km.json`. No middleware and no i18n library: `[locale]` is a static route segment, `/` redirects to `/en`. Default locale: **English** (see Decision log). Khmer strings need review by a native speaker.
+- [x] Base layout following DESIGN.md: header (logo, nav, language switch, Contribute button), footer (explore, contribute, non-profit links, license), mobile bottom tab bar.
+- [x] Reusable UI components from DESIGN.md: Button (primary, dark, outline, soft, white), SearchBar, Chip, Badge, Card, SectionHeader/TwoTone, CtaBand, Input, Select, EmptyState, BookShelf. *BookCard is built in Phase 3 with the real book data.*
+- [x] OpenNext + `wrangler.jsonc` config; `images.unoptimized = true` for now.
+- [x] GitHub Actions:
+  - [x] `ci.yml`: lint, type-check, format check, build on every PR and push to `main`
+  - [x] `deploy.yml`: build and deploy on push to `main` (uses `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets; skips with a warning until they exist)
+- [x] Placeholder home page in both languages.
+
+**Owner to do:** push the repo, then add the `CLOUDFLARE_API_TOKEN` (template "Edit Cloudflare Workers") and `CLOUDFLARE_ACCOUNT_ID` repository secrets so `deploy.yml` can publish to `book-in-cambodia.<account>.workers.dev`.
 
 ### Done when
 
@@ -540,6 +542,7 @@ Record decisions that change or confirm this plan.
 | 2026-10-30 | All | The site is a non-profit, central hub for Cambodia's book lovers (added Phase 7 community hub and non-profit principles) | Owner's direction |
 | 2026-10-30 | 1+ | Visual style recorded in docs/DESIGN.md: Homix-inspired, Epilogue + Kantumruy Pro, purple `#6357E8` accent | Owner chose the Homix look; accent darkened for contrast |
 | 2026-10-30 | 0 | Spike passed locally: Next.js 16.4 + Keystatic 0.6 + OpenNext Cloudflare 1.20 builds; Worker is 1.18 MB gzip (limit 3 MB); prerendered pages served from static assets via `staticAssetsIncrementalCache` (no KV/R2). No middleware: `/` → `/en` is a `next.config` redirect. | Keeps everything on the free plan. Remote deploy and GitHub-mode login still to verify once accounts exist. |
+| 2026-10-30 | 1 | Default language **English** (`/` → `/en`); Khmer at `/km`. Custom JSON dictionaries instead of `next-intl`. | Most catalog data starts in English; one constant (`defaultLocale`) to change later. No middleware keeps OpenNext simple and every page static. |
 | 2026-10-30 | 8 | Domain: **bookincambodia.org** (Cloudflare Registrar, Email Routing for `hello@`) | Owner's choice; `.org` fits a non-profit and is cheap to keep |
 
 ## Open questions

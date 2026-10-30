@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Book in Cambodia",
+    "description": "Find any book in Cambodia: see which bookstores, libraries and sellers have it, or order it from abroad. A free, non-profit, open source directory."
+  },
+  "nav": {
+    "home": "Home",
+    "books": "Books",
+    "stores": "Stores",
+    "abroad": "Order from abroad",
+    "abroadShort": "Abroad",
+    "search": "Search",
+    "about": "About",
+    "contribute": "Contribute",
+    "language": "Language",
+    "main": "Main",
+    "skipToContent": "Skip to content"
+  },
+  "search": {
+    "label": "Search books",
+    "placeholder": "Search title, author or ISBN · ចំណងជើង អ្នកនិពន្ធ",
+    "placeholderShort": "Title, author or ISBN",
+    "button": "Search"
+  },
+  "home": {
+    "badge": "Non-profit · Free for everyone · Open source",
+    "titleStart": "The best place to find",
+    "titleAccent": "your next book in Cambodia",
+    "lead": "Search once and see every store, library and seller that has it.",
+    "try": "Try:"
+  },
+  "footer": {
+    "about": "A non-profit, volunteer-run home for book lovers in Cambodia. We don't sell books, take commissions or show ads. Every store is listed free and equally.",
+    "explore": "Explore",
+    "contribute": "Contribute",
+    "addBookOrStore": "Add a book or store",
+    "reportWrongInfo": "Report wrong info",
+    "github": "GitHub",
+    "nonProfit": "Non-profit",
+    "contact": "Contact us",
+    "license": "Code: MIT · Content: CC BY-SA 4.0"
+  },
+  "common": {
+    "seeAll": "See all",
+    "comingSoon": "Coming soon"
+  }
+}
