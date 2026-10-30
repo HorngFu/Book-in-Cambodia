@@ -49,7 +49,7 @@ Rules for every phase:
 | 1 | Project scaffold, design system, auto-deploy | Free | Done (auto-deploy waits on Cloudflare secrets) |
 | 2 | Content model in Keystatic | Free | Done |
 | 3 | Public pages | Free | Done |
-| 4 | Search and filters | Free | Not started |
+| 4 | Search and filters | Free | Done |
 | 5 | Online editing (Keystatic GitHub mode) | Free | Not started |
 | 6 | Contribution features: requests and reports | Free | Not started |
 | 7 | Community hub: events, book clubs, donations, volunteers | Free | Not started |
@@ -317,15 +317,15 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 3. Do the book detail page f
 
 ### Tasks
 
-- [ ] Build step that generates `public/search-index.json` from content (title, titleKm, authors, ISBN, categories, language, available-in-Cambodia flag, slug, cover thumbnail).
-- [ ] Client-side search with **MiniSearch**: prefix and fuzzy matching, field boosting (title > author > category).
-- [ ] **Khmer support:** Khmer has no spaces between words. Tokenize with `Intl.Segmenter('km', { granularity: 'word' })` at index and query time; if results are poor, fall back to character n-grams for Khmer fields. Add tests with real Khmer titles.
-- [ ] Exact ISBN match (strip hyphens/spaces; accept ISBN-10 and ISBN-13).
-- [ ] `/[locale]/search?q=` results page + instant results dropdown in the header.
-- [ ] Filters: category, language, province, "available in Cambodia only", format.
-- [ ] Search state in the URL so results can be shared.
-- [ ] "No results" state with two actions: **request this book** (Phase 6) and **order from abroad** (import services).
-- [ ] Load the index lazily (only when the search box is focused); keep it under ~500 KB gzipped and record its size in CI.
+- [x] Build step that generates `public/search-index.json` from content (`npm run search-index`, runs automatically before `dev` and `build`). It is a static asset, so searching costs no Worker requests.
+- [x] Client-side search with **MiniSearch**: prefix and fuzzy matching, field boosting (title > author > subtitle/category). Code in `src/lib/search/`.
+- [x] **Khmer support:** Khmer runs are kept whole and also split with `Intl.Segmenter('km', { granularity: 'word' })` at index and query time. Because the segmenter splits some names oddly (e.g. សូផាត → សូ·ផា·ត), Khmer queries also fall back to a plain substring match on Khmer titles/authors. Tests use real Khmer titles and names (`test/search.test.ts`); 2 more Khmer books were added to the seed.
+- [x] Exact ISBN match (strip hyphens/spaces; ISBN-10 is also matched against ISBN-13).
+- [x] `/[locale]/search?q=` results page + instant results dropdown in the **home page search box** (combobox with keyboard support). The header has a search button (desktop) and the mobile tab bar a Search tab, both leading to the search page, instead of a second search box in the header.
+- [x] Filters: category, language, province, "available in Cambodia only", format. Only values that match at least one book are offered.
+- [x] Search state in the URL (`q`, `cat`, `lang`, `prov`, `fmt`, `avail`) so results can be shared and survive a reload.
+- [x] "No results" state with two actions: **request this book** (pre-filled GitHub issue until Phase 6) and **order from abroad** (import services).
+- [x] Load the index lazily (on first focus of the search box, or when the search page opens). Budget: build fails above 500 KB gzip; the size is printed in every build log (now 2.2 KB for 22 books, so roughly 5,000 books fit).
 
 ### Done when
 
@@ -548,6 +548,7 @@ Record decisions that change or confirm this plan.
 | 2026-10-30 | 1+ | Visual style recorded in docs/DESIGN.md: Homix-inspired, Epilogue + Kantumruy Pro, purple `#6357E8` accent | Owner chose the Homix look; accent darkened for contrast |
 | 2026-10-30 | 0 | Spike passed locally: Next.js 16.4 + Keystatic 0.6 + OpenNext Cloudflare 1.20 builds; Worker is 1.18 MB gzip (limit 3 MB); prerendered pages served from static assets via `staticAssetsIncrementalCache` (no KV/R2). No middleware: `/` → `/en` is a `next.config` redirect. | Keeps everything on the free plan. Remote deploy and GitHub-mode login still to verify once accounts exist. |
 | 2026-10-30 | 1 | Default language **English** (`/` → `/en`); Khmer at `/km`. Custom JSON dictionaries instead of `next-intl`. | Most catalog data starts in English; one constant (`defaultLocale`) to change later. No middleware keeps OpenNext simple and every page static. |
+| 2026-10-30 | 4 | Search ships the book data (not a prebuilt index) as a static JSON file; the browser builds the MiniSearch index on first use. Khmer = segmenter words + substring fallback. | Smaller download, free to serve, and robust to imperfect Khmer word splitting. Revisit at ~5,000 books (Phase 9: D1 full-text search). |
 | 2026-10-30 | 8 | Domain: **bookincambodia.org** (Cloudflare Registrar, Email Routing for `hello@`) | Owner's choice; `.org` fits a non-profit and is cheap to keep |
 
 ## Open questions

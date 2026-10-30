@@ -23,6 +23,7 @@ Please only add information you have checked yourself, and fill in the "last ver
    ```bash
    npm run lint
    npm run typecheck
+   npm test
    npm run build
    ```
 4. Open a pull request describing what you changed and why.

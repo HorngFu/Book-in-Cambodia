@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
-import type { BookCardData } from "@/lib/view";
+import type { BookCardData } from "@/lib/book-card";
 import { BookCover } from "./BookCover";
 
 export function BookCard({

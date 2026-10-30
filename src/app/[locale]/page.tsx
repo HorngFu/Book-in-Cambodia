@@ -7,13 +7,14 @@ import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
 import { ChipLink } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { SectionHeader } from "@/components/ui/Heading";
-import { SearchBar } from "@/components/ui/SearchBar";
+import { SearchBox } from "@/components/search/SearchBox";
 import { site } from "@/config/site";
 import { provinces } from "@/data/options";
 import { localized } from "@/i18n/config";
 import { format, plural } from "@/i18n/dictionaries";
 import { pageContext, type LocaleParams } from "@/i18n/page";
 import { href, paths } from "@/i18n/routes";
+import { searchBoxLabels } from "@/i18n/search-labels";
 import { getAllBooks, getAllCategories, getAllStores, getLookups } from "@/lib/content";
 import { issueUrl } from "@/lib/links";
 import { toBookCard } from "@/lib/view";
@@ -44,7 +45,8 @@ export default async function HomePage({ params }: { params: LocaleParams }) {
   return (
     <>
       <section className="px-2 md:px-4">
-        <div className="mx-auto flex max-w-[1408px] flex-col items-center overflow-hidden rounded-lg bg-primary-tint">
+        {/* No overflow-hidden here: the search suggestions must be able to overlap the shelf. */}
+        <div className="mx-auto flex max-w-[1408px] flex-col items-center rounded-lg bg-primary-tint">
           <div className="flex max-w-[900px] flex-col items-center gap-5 px-4 pt-12 text-center md:px-6 md:pt-24">
             <p className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary">
               {dict.home.badge}
@@ -54,19 +56,14 @@ export default async function HomePage({ params }: { params: LocaleParams }) {
             </h1>
             <p className="max-w-xl text-body-strong md:text-lg">{dict.home.lead}</p>
           </div>
-          <SearchBar
-            action={searchPath}
-            label={dict.search.label}
-            placeholder={dict.search.placeholder}
-            button={dict.search.button}
-            id="hero-q"
-            className="relative z-10 mx-4 mt-8 max-w-[760px] md:mt-10"
-          />
+          <div className="relative z-20 mt-8 w-full max-w-[792px] px-4 md:mt-10">
+            <SearchBox locale={locale} action={searchPath} labels={searchBoxLabels(locale, dict)} />
+          </div>
           <p className="mt-4 px-4 text-sm text-body-strong">
             {dict.home.try} <Link href={`${searchPath}?q=Loung+Ung`}>Loung Ung</Link> ·{" "}
             <Link href={`${searchPath}?q=${encodeURIComponent("ផ្កាស្រពោន")}`}>ផ្កាស្រពោន</Link>
           </p>
-          <BookShelf className="mt-6 w-full px-4 md:mt-10" height={180} />
+          <BookShelf className="mt-6 w-full rounded-b-lg px-4 md:mt-10" height={180} />
         </div>
       </section>
 

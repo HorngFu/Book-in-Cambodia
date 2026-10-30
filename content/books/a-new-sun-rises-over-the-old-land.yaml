@@ -1,0 +1,23 @@
+title: "A New Sun Rises Over the Old Land"
+titleKm: "ព្រះអាទិត្យថ្មីរះលើផែនដីចាស់"
+authors:
+  - "suon-sorin"
+language: "km"
+categories:
+  - "khmer-literature"
+  - "novels"
+publishedYear: 1961
+description: "A Khmer novel about the lives of ordinary people in Phnom Penh during a time of social change."
+descriptionKm: "ប្រលោមលោកខ្មែរអំពីជីវិតរបស់ប្រជាជនសាមញ្ញនៅភ្នំពេញ ក្នុងសម័យកាលនៃការផ្លាស់ប្តូរសង្គម។"
+availability:
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 5
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+  - store: "capital-reading-library"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-05
+addedOn: 2026-10-29

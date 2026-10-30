@@ -24,3 +24,6 @@ coverage/
 
 # local tool config
 .claude/
+
+# generated
+public/search-index.json

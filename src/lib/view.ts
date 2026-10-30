@@ -2,23 +2,13 @@ import "server-only";
 import { bookLanguages, optionLabel, provinces } from "@/data/options";
 import { localized, type Locale } from "@/i18n/config";
 import { format, plural, type Dictionary } from "@/i18n/dictionaries";
+import type { BookCardData } from "./book-card";
 import type { Author, Book, Store } from "./content";
 import { formatUsd } from "./links";
 
 // Turns content entries into the plain data the cards render.
 
-export type BookCardData = {
-  slug: string;
-  title: string;
-  /** Title in the other script (Khmer title on English pages), if any. */
-  altTitle?: string;
-  authorNames: string;
-  cover?: string | null;
-  language: string;
-  available: boolean;
-  badge: string;
-  priceLabel: string;
-};
+export type { BookCardData };
 
 export function bookTitle(book: Book, locale: Locale) {
   return localized(locale, book.title, book.titleKm);

@@ -18,7 +18,10 @@
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf:size": "opennextjs-cloudflare build && wrangler deploy --dry-run --outdir .wrangler/dry-run",
     "test": "vitest run",
-    "images": "node scripts/optimize-images.mjs"
+    "images": "node scripts/optimize-images.mjs",
+    "search-index": "tsx scripts/build-search-index.mts",
+    "predev": "npm run search-index",
+    "prebuild": "npm run search-index"
   },
   "engines": {
     "node": ">=20.9"
@@ -27,6 +30,7 @@
     "@keystatic/core": "^0.6.9",
     "@keystatic/next": "^5.0.5",
     "lucide-react": "^1.64.0",
+    "minisearch": "^7.2.0",
     "next": "^16.4.3",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
@@ -43,6 +47,7 @@
     "prettier": "^3.9.10",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "~5.9",
     "vitest": "^5.0.5",
     "wrangler": "^4.156.0"
