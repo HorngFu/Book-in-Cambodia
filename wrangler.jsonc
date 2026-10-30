@@ -19,4 +19,8 @@
   "observability": {
     "enabled": true,
   },
+  // book-in-cambodia.<subdomain>.workers.dev until the custom domain (Phase 8),
+  // plus per-pull-request preview URLs (pr-N-book-in-cambodia.<subdomain>.workers.dev).
+  "workers_dev": true,
+  "preview_urls": true,
 }

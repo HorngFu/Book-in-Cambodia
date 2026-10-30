@@ -10,9 +10,17 @@ import {
 
 // Local mode in development (edits files on disk); GitHub mode in production
 // (edits become commits). Switched with NEXT_PUBLIC_KEYSTATIC_STORAGE=github.
+// Editors work on "content/…" branches and open a pull request; maintainers merge.
+export const keystaticStorageMode =
+  process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE === "github" ? "github" : "local";
+
 const storage =
-  process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE === "github"
-    ? ({ kind: "github", repo: { owner: "HorngFu", name: "Book-in-Cambodia" } } as const)
+  keystaticStorageMode === "github"
+    ? ({
+        kind: "github",
+        repo: { owner: "HorngFu", name: "Book-in-Cambodia" },
+        branchPrefix: "content/",
+      } as const)
     : ({ kind: "local" } as const);
 
 const lastVerified = fields.date({

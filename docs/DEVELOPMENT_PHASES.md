@@ -50,7 +50,7 @@ Rules for every phase:
 | 2 | Content model in Keystatic | Free | Done |
 | 3 | Public pages | Free | Done |
 | 4 | Search and filters | Free | Done |
-| 5 | Online editing (Keystatic GitHub mode) | Free | Not started |
+| 5 | Online editing (Keystatic GitHub mode) | Free | Built (switched on once the owner creates the GitHub App) |
 | 6 | Contribution features: requests and reports | Free | Not started |
 | 7 | Community hub: events, book clubs, donations, volunteers | Free | Not started |
 | 8 | Launch polish: SEO, performance, accessibility, transparency, domain | Domain ~$10–15/year | Not started |
@@ -349,12 +349,12 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 4. Add a few extra seed book
 
 ### Tasks
 
-- [ ] Switch Keystatic to **GitHub mode** in production, local mode in development (via env var).
-- [ ] Create the Keystatic GitHub App (Keystatic's setup screen at `/keystatic` generates it), then set `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET` as Cloudflare Worker secrets and `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` as a build variable.
-- [ ] Editing workflow: editors work on a branch and open a PR (Keystatic supports branches), maintainers review and merge, the site redeploys. Decide whether trusted editors may commit straight to `main`.
-- [ ] Protect `main` with branch protection and required CI.
-- [ ] `docs/EDITOR_GUIDE.md` (English + Khmer): how to log in, add a book, add a store, update availability, what "last verified" means. Include screenshots.
-- [ ] Optional: PR preview deployments (Workers versions/preview URLs) so reviewers can see changes before merge.
+- [x] Switch Keystatic to **GitHub mode** in production, local mode in development. Production builds use GitHub mode when the repo variable `KEYSTATIC_STORAGE=github` is set; until then the live `/keystatic` shows "Online editing isn't switched on yet" and the API returns 404 (a local-mode editor can't save on Workers). The API handler is created on the first request, so the GitHub App secrets are only needed at runtime (verified: login redirects to GitHub with runtime credentials).
+- [ ] Create the Keystatic GitHub App, then set `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET` as Worker secrets and the repo variables `KEYSTATIC_STORAGE` / `KEYSTATIC_GITHUB_APP_SLUG`. **Owner to do** — step by step in [docs/EDITOR_GUIDE.md](EDITOR_GUIDE.md#for-maintainers-switching-on-online-editing).
+- [x] Editing workflow: editors work on `content/…` branches (Keystatic `branchPrefix`) and open a PR; maintainers review and merge; the site redeploys. Decision: **no direct commits to `main` by editors** (see Decision log).
+- [ ] Protect `main` with branch protection and required CI. *Not available for private repositories on the free GitHub plan; do it when the repo goes public.*
+- [x] `docs/EDITOR_GUIDE.md` (English + Khmer): how to log in, branch, add a book, add a store, update availability, what "last verified" means, plus the maintainer setup. *Screenshots to add once the live editor is switched on.*
+- [x] PR preview deployments: `.github/workflows/preview.yml` uploads each same-repo PR as a Worker preview version (`pr-N-book-in-cambodia.<subdomain>.workers.dev`) and comments the link.
 
 ### Done when
 
@@ -549,6 +549,7 @@ Record decisions that change or confirm this plan.
 | 2026-10-30 | 0 | Spike passed locally: Next.js 16.4 + Keystatic 0.6 + OpenNext Cloudflare 1.20 builds; Worker is 1.18 MB gzip (limit 3 MB); prerendered pages served from static assets via `staticAssetsIncrementalCache` (no KV/R2). No middleware: `/` → `/en` is a `next.config` redirect. | Keeps everything on the free plan. Remote deploy and GitHub-mode login still to verify once accounts exist. |
 | 2026-10-30 | 1 | Default language **English** (`/` → `/en`); Khmer at `/km`. Custom JSON dictionaries instead of `next-intl`. | Most catalog data starts in English; one constant (`defaultLocale`) to change later. No middleware keeps OpenNext simple and every page static. |
 | 2026-10-30 | 4 | Search ships the book data (not a prebuilt index) as a static JSON file; the browser builds the MiniSearch index on first use. Khmer = segmenter words + substring fallback. | Smaller download, free to serve, and robust to imperfect Khmer word splitting. Revisit at ~5,000 books (Phase 9: D1 full-text search). |
+| 2026-10-30 | 5 | Editors never commit to `main`: Keystatic saves to `content/…` branches and every change goes through a reviewed PR with a preview link. | Keeps listings trustworthy; a typo in a store's phone number reaches readers only after review. |
 | 2026-10-30 | 8 | Domain: **bookincambodia.org** (Cloudflare Registrar, Email Routing for `hello@`) | Owner's choice; `.org` fits a non-profit and is cheap to keep |
 
 ## Open questions
