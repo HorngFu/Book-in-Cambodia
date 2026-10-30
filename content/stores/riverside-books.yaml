@@ -1,0 +1,9 @@
+name: "Riverside Books"
+nameKm: "បណ្ណាគារមាត់ទន្លេ"
+type: "bookstore"
+province: "phnom-penh"
+address: "Sisowath Quay, Daun Penh"
+hours: "Daily 8:00–20:00"
+telegram: "sample_riverside_books"
+lastVerified: 2026-10-12
+sampleData: true

@@ -1,0 +1,32 @@
+title: "Kolab Pailin"
+titleKm: "កុលាបប៉ៃលិន"
+authors:
+  - "nhok-them"
+language: "km"
+categories:
+  - "khmer-literature"
+  - "novels"
+description: "A classic Khmer love story set in the gem-mining town of Pailin."
+descriptionKm: "រឿងស្នេហាខ្មែរបុរាណ ដែលកើតឡើងនៅតំបន់រុករកត្បូងប៉ៃលិន។"
+availability:
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 4
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 4
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+  - store: "capital-reading-library"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-05
+  - store: "second-chapter"
+    format: "used"
+    priceUsd: 2
+    stock: "in-stock"
+    lastVerified: 2026-09-18
+addedOn: 2026-10-25

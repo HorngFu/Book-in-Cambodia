@@ -1,0 +1,26 @@
+title: "The Little Prince"
+authors:
+  - "antoine-de-saint-exupery"
+language: "en"
+categories:
+  - "children"
+  - "novels"
+publishedYear: 1943
+description: "A short, illustrated story about a young prince who travels between planets, loved by children and adults."
+availability:
+  - store: "riverside-books"
+    format: "paperback"
+    priceUsd: 9
+    stock: "in-stock"
+    lastVerified: 2026-10-12
+  - store: "capital-reading-library"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-05
+  - store: "battambang-reading-room"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-20
+addedOn: 2026-09-30

@@ -1,0 +1,28 @@
+title: "Harry Potter and the Philosopher's Stone"
+authors:
+  - "jk-rowling"
+language: "en"
+categories:
+  - "children"
+  - "novels"
+isbn13: "978-0-7475-3269-9"
+publisher: "Bloomsbury"
+publishedYear: 1997
+description: "The first book in the Harry Potter series, about a boy who discovers he is a wizard."
+availability:
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 12
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+  - store: "second-chapter"
+    format: "used"
+    priceUsd: 5
+    stock: "in-stock"
+    lastVerified: 2026-09-18
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 13
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+addedOn: 2026-10-10

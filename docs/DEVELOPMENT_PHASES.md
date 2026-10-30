@@ -47,7 +47,7 @@ Rules for every phase:
 |---|---|---|---|
 | 0 | Foundation and technical spike | Free | Done locally (deploy + GitHub login waiting on owner accounts) |
 | 1 | Project scaffold, design system, auto-deploy | Free | Done (auto-deploy waits on Cloudflare secrets) |
-| 2 | Content model in Keystatic | Free | Not started |
+| 2 | Content model in Keystatic | Free | Done |
 | 3 | Public pages | Free | Not started |
 | 4 | Search and filters | Free | Not started |
 | 5 | Online editing (Keystatic GitHub mode) | Free | Not started |
@@ -239,12 +239,13 @@ All content lives under `content/` as YAML/Markdoc files, one file per entry.
 
 ### Tasks
 
-- [ ] `keystatic.config.ts` with the collections and singletons above, using **local mode** for now.
-- [ ] Field validation (required fields, ISBN format, URL format, date for `lastVerified`).
-- [ ] Typed data helpers in `src/lib/content/` wrapping Keystatic's reader (e.g. `getAllBooks()`, `getBookBySlug()`, `getStoresByProvince()`), so pages never call the reader directly.
-- [ ] Seed data: ~20 books, ~8 authors, ~8 stores across at least 3 provinces, ~3 import services, ~8 categories. Mark sample data clearly so it is replaced before launch.
-- [ ] A script to resize/convert cover images to WebP (e.g. `npm run images`, using `sharp`).
-- [ ] Document the content model in `docs/CONTENT_MODEL.md`.
+- [x] `keystatic.config.ts` with the collections and singletons above, using **local mode** for now. *Final field list: [docs/CONTENT_MODEL.md](CONTENT_MODEL.md). Changes from the draft above: descriptions are plain text (not Markdoc); `inStock` became `stock` (in stock / ask / out of stock); a `library` format and `addedOn` date were added; stores and import services got a `sampleData` flag; the disclaimer lives in site settings; lat/long left out until the map (Phase 10).*
+- [x] Field validation (required fields, ISBN format, URL format, date for `lastVerified`).
+- [x] Typed data helpers in `src/lib/content.ts` wrapping Keystatic's reader (`getAllBooks()`, `getBook()`, `getStoresByProvince()`, `getBooksAtStore()`, …), so pages never call the reader directly.
+- [x] Seed data: 20 real books (incl. 4 Khmer classics), 19 authors, 9 categories, 9 stores in 4 provinces + online, 3 import services. **Stores and import services are made up** and flagged `sampleData: true`.
+- [x] A script to resize/convert images to 600 px WebP and update content references (`npm run images`, using `sharp`).
+- [x] Document the content model in `docs/CONTENT_MODEL.md`.
+- [x] `npm test` (Vitest) checks every reference between books, authors, categories and stores; runs in CI.
 
 ### Done when
 

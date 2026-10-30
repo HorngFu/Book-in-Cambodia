@@ -1,0 +1,21 @@
+title: "Tum Teav"
+titleKm: "ទុំទាវ"
+authors:
+  - "botumthera-som"
+language: "km"
+categories:
+  - "khmer-literature"
+description: "The classic Cambodian tragic love story of Tum and Teav, told in verse."
+descriptionKm: "រឿងស្នេហាសោកនាដកម្មបុរាណខ្មែររបស់ ទុំ និង ទាវ និពន្ធជាកំណាព្យ។"
+availability:
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 3
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+  - store: "battambang-reading-room"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-20
+addedOn: 2026-10-12

@@ -1,0 +1,22 @@
+title: "Sophat"
+titleKm: "សូផាត"
+authors:
+  - "rim-kin"
+language: "km"
+categories:
+  - "khmer-literature"
+  - "novels"
+description: "One of the first modern Khmer novels, following the life of a young orphan."
+descriptionKm: "ប្រលោមលោកខ្មែរសម័យទំនើបដំបូងៗ ដែលនិយាយអំពីជីវិតរបស់ក្មេងកំព្រាម្នាក់។"
+availability:
+  - store: "capital-reading-library"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-05
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 3.5
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+addedOn: 2026-10-15

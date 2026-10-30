@@ -1,0 +1,25 @@
+title: "Rich Dad Poor Dad"
+authors:
+  - "robert-kiyosaki"
+language: "en"
+categories:
+  - "business"
+publishedYear: 1997
+description: "A popular personal finance book comparing the money lessons of two father figures."
+availability:
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 10
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 11
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+  - store: "mekong-page-bookshop"
+    format: "paperback"
+    priceUsd: 12
+    stock: "ask"
+    lastVerified: 2026-03-10
+addedOn: 2026-09-10

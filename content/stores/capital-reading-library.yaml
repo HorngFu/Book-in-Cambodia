@@ -1,0 +1,9 @@
+name: "Capital Reading Library"
+nameKm: "បណ្ណាល័យអានរាជធានី"
+type: "library"
+province: "phnom-penh"
+address: "Street 51, Daun Penh"
+hours: "Mon–Fri 8:00–17:00"
+lastVerified: 2026-08-05
+notes: "Books are read in the library; ask about borrowing."
+sampleData: true

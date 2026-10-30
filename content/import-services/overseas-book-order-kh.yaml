@@ -1,0 +1,12 @@
+name: "Overseas Book Order KH"
+basedIn: "phnom-penh"
+deliversNationwide: true
+description: "Orders new books from online shops in the US and UK and delivers them anywhere in Cambodia."
+sources:
+  - "Amazon US"
+  - "Amazon UK"
+deliveryTime: "2–3 weeks"
+fees: "Quote per order"
+telegram: "sample_overseas_books"
+lastVerified: 2026-10-15
+sampleData: true

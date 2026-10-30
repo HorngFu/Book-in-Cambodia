@@ -1,0 +1,20 @@
+title: "A History of Cambodia"
+authors:
+  - "david-chandler"
+language: "en"
+categories:
+  - "history"
+publishedYear: 1983
+description: "A widely used one-volume history of Cambodia from early times to the present."
+availability:
+  - store: "riverside-books"
+    format: "paperback"
+    priceUsd: 28
+    stock: "in-stock"
+    lastVerified: 2026-10-12
+  - store: "capital-reading-library"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-05
+addedOn: 2026-10-18

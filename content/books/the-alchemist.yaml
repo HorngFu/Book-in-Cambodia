@@ -1,0 +1,20 @@
+title: "The Alchemist"
+authors:
+  - "paulo-coelho"
+language: "en"
+categories:
+  - "novels"
+publishedYear: 1988
+description: "A novel about a young shepherd who travels in search of treasure and learns to follow his dreams."
+availability:
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 9
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+  - store: "second-chapter"
+    format: "used"
+    priceUsd: 4
+    stock: "in-stock"
+    lastVerified: 2026-09-18
+addedOn: 2026-09-25

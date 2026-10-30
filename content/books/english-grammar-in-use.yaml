@@ -1,0 +1,31 @@
+title: "English Grammar in Use"
+authors:
+  - "raymond-murphy"
+language: "en"
+categories:
+  - "learning-english"
+publisher: "Cambridge University Press"
+publishedYear: 1985
+description: "A self-study grammar reference and practice book for intermediate learners of English."
+availability:
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 18
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+  - store: "mekong-page-bookshop"
+    format: "paperback"
+    priceUsd: 20
+    stock: "ask"
+    lastVerified: 2026-03-10
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 19
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+  - store: "pepper-coast-books"
+    format: "paperback"
+    priceUsd: 22
+    stock: "in-stock"
+    lastVerified: 2026-06-30
+addedOn: 2026-08-25

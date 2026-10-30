@@ -1,0 +1,38 @@
+title: "Atomic Habits"
+subtitle: "An Easy & Proven Way to Build Good Habits & Break Bad Ones"
+authors:
+  - "james-clear"
+language: "en"
+categories:
+  - "self-help"
+isbn13: "978-0-7352-1129-2"
+publisher: "Avery"
+publishedYear: 2018
+description: "A practical guide to building good habits and breaking bad ones through small, consistent changes."
+availability:
+  - store: "riverside-books"
+    format: "paperback"
+    priceUsd: 15
+    stock: "in-stock"
+    lastVerified: 2026-10-12
+  - store: "mekong-page-bookshop"
+    format: "paperback"
+    priceUsd: 14
+    stock: "ask"
+    lastVerified: 2026-03-10
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 10
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 11
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+  - store: "pepper-coast-books"
+    format: "paperback"
+    priceUsd: 16
+    stock: "in-stock"
+    lastVerified: 2026-06-30
+addedOn: 2026-10-22

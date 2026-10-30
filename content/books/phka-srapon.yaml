@@ -1,0 +1,22 @@
+title: "Phka Srapon"
+titleKm: "ផ្កាស្រពោន"
+authors:
+  - "nou-hach"
+language: "km"
+categories:
+  - "khmer-literature"
+  - "novels"
+description: "A classic Khmer novel by Nou Hach, widely read in Cambodian schools."
+descriptionKm: "ប្រលោមលោកខ្មែរបុរាណរបស់ លោក នូ ហាច ដែលត្រូវបានអានយ៉ាងទូលំទូលាយនៅក្នុងសាលារៀនកម្ពុជា។"
+availability:
+  - store: "khmer-book-online"
+    format: "paperback"
+    priceUsd: 4
+    stock: "in-stock"
+    lastVerified: 2026-10-20
+  - store: "students-book-corner"
+    format: "paperback"
+    priceUsd: 4.5
+    stock: "in-stock"
+    lastVerified: 2026-07-22
+addedOn: 2026-10-27

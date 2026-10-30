@@ -1,1 +1,34 @@
-title: First They Killed My Father
+title: "First They Killed My Father"
+subtitle: "A Daughter of Cambodia Remembers"
+authors:
+  - "loung-ung"
+language: "en"
+categories:
+  - "memoir"
+  - "history"
+isbn13: "978-0-06-085626-7"
+publisher: "Harper Perennial"
+publishedYear: 2000
+description: "A memoir of the author's childhood under the Khmer Rouge regime, from the fall of Phnom Penh in 1975 to her escape from Cambodia."
+availability:
+  - store: "riverside-books"
+    format: "paperback"
+    priceUsd: 12
+    stock: "in-stock"
+    lastVerified: 2026-10-12
+  - store: "old-market-book-corner"
+    format: "used"
+    priceUsd: 6
+    stock: "in-stock"
+    lastVerified: 2026-09-02
+  - store: "battambang-reading-room"
+    format: "library"
+    priceUsd: 0
+    stock: "in-stock"
+    lastVerified: 2026-08-20
+  - store: "mekong-page-bookshop"
+    format: "paperback"
+    priceUsd: 13
+    stock: "ask"
+    lastVerified: 2026-03-10
+addedOn: 2026-10-28
