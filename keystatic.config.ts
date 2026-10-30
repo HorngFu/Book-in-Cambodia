@@ -282,7 +282,16 @@ export default config({
       schema: {
         tagline: fields.text({ label: "Tagline" }),
         taglineKm: khmerText("Tagline"),
-        telegram: fields.text({ label: "Community Telegram username or group" }),
+        telegram: fields.text({
+          label: "Community Telegram username or group",
+          description:
+            "Shown on the Contribute page as a way to request books and report problems without a GitHub account. Without @.",
+        }),
+        contactFormUrl: fields.url({
+          label: "Online form link",
+          description:
+            "Optional free form (e.g. Google Forms) for people without GitHub or Telegram.",
+        }),
         facebook: fields.url({ label: "Facebook page" }),
         disclaimer: fields.text({ label: "Disclaimer", multiline: true }),
         disclaimerKm: khmerText("Disclaimer", true),

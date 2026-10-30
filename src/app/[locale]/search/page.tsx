@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { Container, PagePanel } from "@/components/layout/PageHero";
 import { SearchApp } from "@/components/search/SearchApp";
 import { TwoTone } from "@/components/ui/Heading";
-import { site } from "@/config/site";
 import { bookFormats, bookLanguages, provinces } from "@/data/options";
 import { localized } from "@/i18n/config";
 import { pageContext, type LocaleParams } from "@/i18n/page";
@@ -35,10 +34,6 @@ export default async function SearchPage({ params }: { params: LocaleParams }) {
   );
   const usedLanguages = new Set(books.map((b) => b.language));
   const usedFormats = new Set(books.flatMap((b) => b.availability.map((l) => l.format)));
-
-  const requestBody = new URLSearchParams({
-    body: "Title: \nAuthor: \nISBN (optional): \nProvince: ",
-  });
 
   return (
     <>
@@ -72,7 +67,7 @@ export default async function SearchPage({ params }: { params: LocaleParams }) {
               .filter((f) => usedFormats.has(f.value))
               .map((f) => ({ value: f.value, label: f[locale].split(" · ")[0] }))}
             abroadHref={href(locale, paths.importServices)}
-            requestUrl={`${site.repoUrl}/issues/new?${requestBody.toString()}`}
+            contributeHref={`${href(locale, paths.contribute)}#request`}
           />
         </Suspense>
         <noscript>

@@ -4,12 +4,11 @@ import { FilterableList } from "@/components/listings/FilterableList";
 import { StoreCard } from "@/components/stores/StoreCard";
 import { ButtonAnchor } from "@/components/ui/Button";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { site } from "@/config/site";
 import { optionLabel, provinces, storeTypes } from "@/data/options";
 import { pageContext, type LocaleParams } from "@/i18n/page";
 import { href, paths } from "@/i18n/routes";
 import { getAllBooks, getAllStores } from "@/lib/content";
-import { issueUrl } from "@/lib/links";
+import { forms } from "@/lib/contribute";
 
 export async function generateMetadata({ params }: { params: LocaleParams }): Promise<Metadata> {
   const { locale, dict } = await pageContext(params);
@@ -85,15 +84,7 @@ export default async function StoresPage({ params }: { params: LocaleParams }) {
       </Container>
       <div className="pt-16 md:pt-24">
         <CtaBand title={dict.stores.ownStoreTitle} text={dict.stores.ownStoreText}>
-          <ButtonAnchor
-            href={issueUrl(
-              site.repoUrl,
-              "Add my store",
-              "Store name: \nProvince: \nAddress: \nTelegram: \nPhone: \nOpening hours: ",
-            )}
-            variant="white"
-            size="lg"
-          >
+          <ButtonAnchor href={forms.addStore()} variant="white" size="lg">
             {dict.stores.addMyStore}
           </ButtonAnchor>
         </CtaBand>

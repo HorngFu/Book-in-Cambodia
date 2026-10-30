@@ -18,12 +18,6 @@ export function mapsUrl(name: string, address: string, explicit?: string | null)
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
-/** Prefilled GitHub issue (Phase 6 replaces this with issue forms). */
-export function issueUrl(repoUrl: string, title: string, body = ""): string {
-  const params = new URLSearchParams({ title, body });
-  return `${repoUrl}/issues/new?${params.toString()}`;
-}
-
 export function formatUsd(value: number): string {
   return Number.isInteger(value) ? `$${value}` : `$${value.toFixed(2)}`;
 }

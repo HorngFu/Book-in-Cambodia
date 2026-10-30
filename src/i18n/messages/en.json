@@ -15,7 +15,8 @@
     "language": "Language",
     "main": "Main",
     "breadcrumb": "Breadcrumb",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "contributeLong": "How to help"
   },
   "search": {
     "label": "Search books",
@@ -234,5 +235,33 @@
   "common": {
     "seeAll": "See all",
     "comingSoon": "Coming soon"
+  },
+  "contribute": {
+    "title": "Help",
+    "titleAccent": "Book in Cambodia",
+    "lead": "Everything here comes from readers, stores and volunteers. Pick how you would like to help.",
+    "requestTitle": "Request a book",
+    "requestText": "Looking for a book nobody lists yet? Tell us, so stores and volunteers know people want it.",
+    "addListingTitle": "Say where to buy a book",
+    "addListingText": "Seen a book in a store or library? Add where, the price and the date.",
+    "addStoreTitle": "Add a bookstore or library",
+    "addStoreText": "Know a place that sells or lends books? Add it. Listing is free, always.",
+    "addServiceTitle": "Add an import service",
+    "addServiceText": "Run or know a service that orders books from abroad?",
+    "reportTitle": "Report wrong information",
+    "reportText": "Wrong price, closed store, broken link or a translation mistake? Let us know.",
+    "viaGithub": "On GitHub",
+    "viaTelegram": "On Telegram",
+    "viaForm": "Online form",
+    "viaEmail": "By email",
+    "githubNote": "GitHub needs a free account. No account? Use Telegram, the form or email.",
+    "editorsTitle": "Become an editor",
+    "editorsText": "Regular contributors can edit books, stores and services directly in the browser. Every change is reviewed before it goes live.",
+    "editorsCta": "Read the editor guide",
+    "codeTitle": "Help build the website",
+    "codeText": "Designers, developers and translators: the website is open source.",
+    "codeCta": "Contributing guide",
+    "reportPage": "Report a problem with this page",
+    "noGithub": "No GitHub account? More ways to help"
   }
 }

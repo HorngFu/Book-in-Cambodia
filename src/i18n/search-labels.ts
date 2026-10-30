@@ -57,6 +57,7 @@ export function searchAppLabels(locale: Locale, dict: Dictionary): SearchAppLabe
     noResultsFiltered: s.noResultsFiltered,
     noResultsText: s.noResultsText,
     requestBook: s.requestBook,
+    noGithub: dict.contribute.noGithub,
     orderAbroad: s.orderAbroad,
     coverOf: dict.book.coverOf,
     card: cardLabels(locale, dict),

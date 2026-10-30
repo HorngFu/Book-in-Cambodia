@@ -8,7 +8,6 @@ import { ChipLink } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { SectionHeader } from "@/components/ui/Heading";
 import { SearchBox } from "@/components/search/SearchBox";
-import { site } from "@/config/site";
 import { provinces } from "@/data/options";
 import { localized } from "@/i18n/config";
 import { format, plural } from "@/i18n/dictionaries";
@@ -16,7 +15,7 @@ import { pageContext, type LocaleParams } from "@/i18n/page";
 import { href, paths } from "@/i18n/routes";
 import { searchBoxLabels } from "@/i18n/search-labels";
 import { getAllBooks, getAllCategories, getAllStores, getLookups } from "@/lib/content";
-import { issueUrl } from "@/lib/links";
+import { forms } from "@/lib/contribute";
 import { toBookCard } from "@/lib/view";
 
 export default async function HomePage({ params }: { params: LocaleParams }) {
@@ -215,15 +214,7 @@ export default async function HomePage({ params }: { params: LocaleParams }) {
           <ButtonLink href={href(locale, paths.importServices)} variant="white" size="lg">
             {dict.book.orderFromAbroad}
           </ButtonLink>
-          <ButtonAnchor
-            href={issueUrl(
-              site.repoUrl,
-              "Book request: ",
-              "Title: \nAuthor: \nISBN (optional): \nProvince: ",
-            )}
-            variant="outline-white"
-            size="lg"
-          >
+          <ButtonAnchor href={forms.requestBook()} variant="outline-white" size="lg">
             {dict.home.requestBook}
           </ButtonAnchor>
         </CtaBand>

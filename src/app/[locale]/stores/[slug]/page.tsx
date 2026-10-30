@@ -16,7 +16,8 @@ import { localized } from "@/i18n/config";
 import { pageContext, type LocaleParams } from "@/i18n/page";
 import { href, paths } from "@/i18n/routes";
 import { getAllStores, getBooksAtStore, getLookups, getStore } from "@/lib/content";
-import { formatUsd, issueUrl } from "@/lib/links";
+import { forms } from "@/lib/contribute";
+import { formatUsd } from "@/lib/links";
 import { authorNames, bookTitle, provinceName } from "@/lib/view";
 
 type Params = Promise<{ locale: string; slug: string }>;
@@ -161,11 +162,7 @@ export default async function StorePage({ params }: { params: Params }) {
         ) : (
           <EmptyState title={dict.store.noBooks}>
             <ButtonAnchor
-              href={issueUrl(
-                site.repoUrl,
-                `Books at ${store.name}`,
-                `Store: ${pageUrl}\n\nBooks: `,
-              )}
+              href={forms.addListing({ title: `(books at ${store.name})`, url: pageUrl })}
               variant="outline"
             >
               {dict.store.addBooks}
@@ -173,15 +170,7 @@ export default async function StorePage({ params }: { params: Params }) {
           </EmptyState>
         )}
         <p className="mt-6">
-          <a
-            href={issueUrl(
-              site.repoUrl,
-              `Wrong info: ${store.name}`,
-              `Page: ${pageUrl}\n\nWhat is wrong: `,
-            )}
-          >
-            {dict.footer.reportWrongInfo}
-          </a>
+          <a href={forms.reportProblem(pageUrl, store.name)}>{dict.footer.reportWrongInfo}</a>
         </p>
       </Container>
     </>

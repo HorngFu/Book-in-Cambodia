@@ -4,11 +4,10 @@ import { ImportServiceCard } from "@/components/abroad/ImportServiceCard";
 import { Container, PageHero } from "@/components/layout/PageHero";
 import { ButtonAnchor } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/Heading";
-import { site } from "@/config/site";
 import { pageContext, type LocaleParams } from "@/i18n/page";
 import { href, paths } from "@/i18n/routes";
 import { getAllImportServices } from "@/lib/content";
-import { issueUrl } from "@/lib/links";
+import { forms } from "@/lib/contribute";
 
 export async function generateMetadata({ params }: { params: LocaleParams }): Promise<Metadata> {
   const { locale, dict } = await pageContext(params);
@@ -40,14 +39,7 @@ export default async function ImportServicesPage({ params }: { params: LocalePar
             start={dict.abroad.servicesStart}
             accent={dict.abroad.servicesAccent}
             action={
-              <ButtonAnchor
-                href={issueUrl(
-                  site.repoUrl,
-                  "Add import service",
-                  "Name: \nBased in: \nOrders from: \nTelegram: \nDelivery time: \nFees: ",
-                )}
-                variant="outline"
-              >
+              <ButtonAnchor href={forms.addImportService()} variant="outline">
                 {dict.abroad.runService}
               </ButtonAnchor>
             }

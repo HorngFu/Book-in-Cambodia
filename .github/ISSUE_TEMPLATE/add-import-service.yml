@@ -1,0 +1,43 @@
+name: ✈️ Add an import service
+description: Suggest a service that orders books from abroad and delivers them in Cambodia.
+title: "Add import service: "
+labels: ["import-service", "needs-verification"]
+body:
+  - type: input
+    id: service_name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: input
+    id: based_in
+    attributes:
+      label: Based in (province)
+  - type: input
+    id: sources
+    attributes:
+      label: Where do they order from?
+      placeholder: e.g. Amazon US, Kinokuniya
+  - type: input
+    id: delivery_time
+    attributes:
+      label: Usual delivery time
+      placeholder: e.g. 2–3 weeks
+  - type: input
+    id: fees
+    attributes:
+      label: Fees
+      placeholder: e.g. quote per order, or 10% of book price
+  - type: input
+    id: contact
+    attributes:
+      label: Public Telegram, Facebook or website
+    validations:
+      required: true
+  - type: dropdown
+    id: relation
+    attributes:
+      label: How do you know this service?
+      options: [I run it, I've ordered from them, Friend or online recommendation]
+    validations:
+      required: true

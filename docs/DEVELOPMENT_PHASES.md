@@ -51,7 +51,7 @@ Rules for every phase:
 | 3 | Public pages | Free | Done |
 | 4 | Search and filters | Free | Done |
 | 5 | Online editing (Keystatic GitHub mode) | Free | Built (switched on once the owner creates the GitHub App) |
-| 6 | Contribution features: requests and reports | Free | Not started |
+| 6 | Contribution features: requests and reports | Free | Done (Telegram/form links waiting on owner) |
 | 7 | Community hub: events, book clubs, donations, volunteers | Free | Not started |
 | 8 | Launch polish: SEO, performance, accessibility, transparency, domain | Domain ~$10–15/year | Not started |
 | 9 | Scale and sustain (paid only when needed, donation-funded) | ~$5+/month | Not started |
@@ -376,17 +376,20 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 5. Walk me step by step thro
 
 ### Tasks
 
-- [ ] GitHub Issue Forms in `.github/ISSUE_TEMPLATE/`:
-  - [ ] **Request a book** (title, author, ISBN, contact optional)
-  - [ ] **Add / suggest a store or seller**
-  - [ ] **Add an import service**
-  - [ ] **Report outdated or wrong information** (pre-filled with the page URL)
-  - [ ] Bug report and feature request
-- [ ] "Request this book", "Report a problem", and "Suggest a store" buttons on the site that open the matching issue form with fields pre-filled from the page.
-- [ ] Alternative for people without GitHub: a Telegram link (group or bot) and/or a free Google Form. Document who watches it.
-- [ ] Full `CONTRIBUTING.md`: code contributions, content contributions, translation help, labels, review process.
-- [ ] "Good first issue" labels and a few starter issues.
-- [ ] Stores page: "Are you a bookstore? Get listed for free" section.
+- [x] GitHub Issue Forms in `.github/ISSUE_TEMPLATE/`:
+  - [x] **Request a book** (title, author, ISBN, language, province; no phone numbers on public issues)
+  - [x] **Add / suggest a store or seller**
+  - [x] **Say where to buy a book** (new: store, format, price, date seen)
+  - [x] **Add an import service**
+  - [x] **Report outdated or wrong information** (pre-filled with the page URL)
+  - [x] Bug report and feature request; blank issues off, with a link to the Contribute page
+- [x] "Request this book", "Report a problem", "Add a listing", "Add my store" and "Add an import service" buttons open the matching issue form with fields pre-filled from the page (`src/lib/contribute.ts`). Every page's footer has "Report a problem with this page".
+- [x] Alternative for people without GitHub: `/[locale]/contribute` lists every action with GitHub, Telegram, online form and email options. Telegram and the form appear once their links are set in **Site settings** (Keystatic). **Owner to do:** create the Telegram group and/or form, set the links, and decide who watches them and `hello@bookincambodia.org`.
+- [x] Full `CONTRIBUTING.md`: content rules, code contributions, translation help, labels, review process.
+- [x] Labels (`request`, `listing`, `store`, `import-service`, `data-fix`, `needs-verification`, `translation`, `good first issue`) and starter issues #1–#4.
+- [x] Stores page: "Own a bookstore? Get listed for free" section (since Phase 3).
+
+**Note:** while the repository is **private**, only collaborators can open GitHub issues, so visitors must use Telegram, the form or email. Make the repo public before launch (Phase 8) so the GitHub options work for everyone.
 
 ### Done when
 

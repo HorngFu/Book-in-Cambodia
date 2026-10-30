@@ -1,0 +1,40 @@
+name: 📚 Request a book
+description: Looking for a book that isn't listed yet? Tell us so stores and volunteers know there's demand.
+title: "Book request: "
+labels: ["request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking! We'll look for it and add it if a store in Cambodia has it. You can also order it from abroad: https://bookincambodia.org/en/import-services
+  - type: input
+    id: book_title
+    attributes:
+      label: Book title
+      placeholder: e.g. Sapiens
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author
+  - type: input
+    id: isbn
+    attributes:
+      label: ISBN (optional)
+      description: The 10 or 13-digit number on the back cover or copyright page.
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language of the edition you want
+      options: [Any, Khmer, English, French, Chinese, Other]
+  - type: input
+    id: province
+    attributes:
+      label: Where are you? (province)
+      placeholder: e.g. Phnom Penh
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Edition, new or used is fine, etc. Please don't post phone numbers here; this page is public.

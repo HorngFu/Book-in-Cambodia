@@ -20,4 +20,5 @@ export const paths = {
   categories: "/categories",
   category: (slug: string) => `/categories/${slug}`,
   about: "/about",
+  contribute: "/contribute",
 } as const;

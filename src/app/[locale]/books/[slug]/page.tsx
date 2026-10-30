@@ -25,7 +25,7 @@ import {
   getBooksByAuthor,
   getLookups,
 } from "@/lib/content";
-import { issueUrl } from "@/lib/links";
+import { forms } from "@/lib/contribute";
 import { authorNames, bookTitle, provinceName, toBookCard } from "@/lib/view";
 
 type Params = Promise<{ locale: string; slug: string }>;
@@ -60,21 +60,13 @@ export default async function BookPage({ params }: { params: Params }) {
   const authors = authorNames(book, lookups.authors, locale);
   const available = book.availability.length > 0;
   const pageUrl = `${site.url}${href(locale, paths.book(slug))}`;
-  const lookingForUrl = issueUrl(
-    site.repoUrl,
-    `Book request: ${book.title}`,
-    `I'm looking for this book: ${pageUrl}\n\nProvince: \nContact (optional): `,
-  );
-  const addListingUrl = issueUrl(
-    site.repoUrl,
-    `Add listing: ${book.title}`,
-    `Book: ${pageUrl}\n\nStore: \nPrice: \nFormat: `,
-  );
-  const reportUrl = issueUrl(
-    site.repoUrl,
-    `Wrong info: ${book.title}`,
-    `Page: ${pageUrl}\n\nWhat is wrong: `,
-  );
+  const lookingForUrl = forms.requestBook({
+    title: book.title,
+    author: authorNames(book, lookups.authors, "en"),
+    isbn: book.isbn13 || book.isbn10,
+  });
+  const addListingUrl = forms.addListing({ title: book.title, url: pageUrl });
+  const reportUrl = forms.reportProblem(pageUrl, book.title);
 
   const meta = [
     [dict.book.language, optionLabel(bookLanguages, book.language, locale)],
@@ -193,6 +185,11 @@ export default async function BookPage({ params }: { params: Params }) {
                   </>
                 )}
               </div>
+              {!available ? (
+                <Link href={`${href(locale, paths.contribute)}#request`} className="text-sm">
+                  {dict.contribute.noGithub}
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>
@@ -255,6 +252,12 @@ export default async function BookPage({ params }: { params: Params }) {
               <Flag size={18} aria-hidden="true" />
               {dict.book.reportWrong}
             </a>
+            <Link
+              href={`${href(locale, paths.contribute)}#report`}
+              className="ml-4 inline-flex min-h-11 items-center text-sm"
+            >
+              {dict.contribute.noGithub}
+            </Link>
           </section>
 
           <aside className="flex max-w-[360px] flex-[1_1_280px] flex-col gap-5">

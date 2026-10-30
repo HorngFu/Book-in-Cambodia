@@ -1,7 +1,6 @@
 import { Search } from "lucide-react";
 import Link from "next/link";
-import { ButtonAnchor } from "@/components/ui/Button";
-import { contributeUrl } from "@/config/site";
+import { ButtonLink } from "@/components/ui/Button";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { href, paths } from "@/i18n/routes";
@@ -33,9 +32,9 @@ export function SiteHeader({
           </Link>
           <LanguageSwitch current={locale} label={dict.nav.language} />
           <span className="hidden sm:block">
-            <ButtonAnchor href={contributeUrl} variant="dark">
+            <ButtonLink href={href(locale, paths.contribute)} variant="dark">
               {dict.nav.contribute}
-            </ButtonAnchor>
+            </ButtonLink>
           </span>
         </div>
       </div>

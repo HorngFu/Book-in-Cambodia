@@ -9,6 +9,7 @@ import { chipClasses } from "@/components/ui/Chip";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { format, plural } from "@/i18n/format";
 import { cn } from "@/lib/cn";
+import { forms } from "@/lib/contribute";
 import { applyFilters, searchBooks, type SearchFilters } from "@/lib/search/core";
 import { docToCard, useBookSearch, type CardLabels } from "@/lib/search/client";
 
@@ -37,6 +38,7 @@ export type SearchAppLabels = {
   noResultsFiltered: string;
   noResultsText: string;
   requestBook: string;
+  noGithub: string;
   orderAbroad: string;
   coverOf: string;
   card: CardLabels;
@@ -60,7 +62,7 @@ export function SearchApp({
   provinces,
   formats,
   abroadHref,
-  requestUrl,
+  contributeHref,
 }: {
   locale: "en" | "km";
   labels: SearchAppLabels;
@@ -69,8 +71,8 @@ export function SearchApp({
   provinces: Option[];
   formats: Option[];
   abroadHref: string;
-  /** GitHub new-issue URL; the query is appended as the title. */
-  requestUrl: string;
+  /** The Contribute page, for people without a GitHub account. */
+  contributeHref: string;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -256,14 +258,14 @@ export function SearchApp({
               title={q ? format(labels.noResultsTitle, { q }) : labels.noResultsFiltered}
               text={labels.noResultsText}
             >
-              <a
-                href={`${requestUrl}&title=${encodeURIComponent(`Book request: ${q}`)}`}
-                className={buttonClasses("outline")}
-              >
+              <a href={forms.requestBook({ title: q })} className={buttonClasses("outline")}>
                 {labels.requestBook}
               </a>
               <a href={abroadHref} className={buttonClasses("dark")}>
                 {labels.orderAbroad}
+              </a>
+              <a href={contributeHref} className="basis-full text-sm">
+                {labels.noGithub}
               </a>
             </EmptyState>
           ) : (

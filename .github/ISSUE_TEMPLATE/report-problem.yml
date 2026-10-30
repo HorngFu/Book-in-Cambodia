@@ -1,0 +1,27 @@
+name: 🚩 Report wrong information
+description: Wrong price, closed store, wrong address, broken link or a mistake in a translation.
+title: "Wrong info: "
+labels: ["data-fix"]
+body:
+  - type: input
+    id: page_url
+    attributes:
+      label: Page
+      description: The address of the page with the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What is correct? (if you know)
+  - type: input
+    id: checked_on
+    attributes:
+      label: When did you check?
+      placeholder: e.g. 28 Oct 2026

@@ -1,0 +1,59 @@
+name: 🏪 Add a bookstore or library
+description: Suggest a bookstore, second-hand seller, library or online seller. Listing is free, always.
+title: "Add store: "
+labels: ["store", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every place is listed free and equally. No one can pay to be shown first.
+        Only share contact details the place already makes public.
+  - type: input
+    id: store_name
+    attributes:
+      label: Name (English and/or Khmer)
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [Bookstore, Second-hand, Library, Online seller, Publisher]
+    validations:
+      required: true
+  - type: input
+    id: province
+    attributes:
+      label: Province
+      placeholder: e.g. Siem Reap, or "online"
+    validations:
+      required: true
+  - type: input
+    id: address
+    attributes:
+      label: Address or Google Maps link
+  - type: input
+    id: telegram
+    attributes:
+      label: Public Telegram username or link
+  - type: input
+    id: phone
+    attributes:
+      label: Public phone number
+  - type: input
+    id: hours
+    attributes:
+      label: Opening hours
+      placeholder: e.g. Daily 8:00–20:00
+  - type: textarea
+    id: books
+    attributes:
+      label: Books they have (optional)
+      description: A few titles and prices you've seen there.
+  - type: dropdown
+    id: relation
+    attributes:
+      label: How do you know this place?
+      options: [I own or work there, I visited, Friend or online recommendation]
+    validations:
+      required: true

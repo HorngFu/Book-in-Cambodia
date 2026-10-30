@@ -1,0 +1,50 @@
+name: 🏷️ Say where to buy a book
+description: Seen a book in a store or library? Add where, the price and when you saw it.
+title: "Where to buy: "
+labels: ["listing", "needs-verification"]
+body:
+  - type: input
+    id: book
+    attributes:
+      label: Book
+      description: Title, or the link to the book's page on Book in Cambodia.
+    validations:
+      required: true
+  - type: input
+    id: store
+    attributes:
+      label: Store or library
+      description: Name, and the link to its page if it's already listed.
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: Format
+      options: [Paperback (new), Hardcover (new), Used, Ebook, Read or borrow in the library]
+    validations:
+      required: true
+  - type: input
+    id: price
+    attributes:
+      label: Price
+      placeholder: e.g. $12 or 48,000៛
+  - type: dropdown
+    id: stock
+    attributes:
+      label: Stock
+      options: [In stock, Ask the store, Out of stock]
+  - type: input
+    id: seen_on
+    attributes:
+      label: When did you see it?
+      placeholder: e.g. 28 Oct 2026
+    validations:
+      required: true
+  - type: checkboxes
+    id: checked
+    attributes:
+      label: Checked
+      options:
+        - label: I saw this myself (in the store, by phone, or on the store's official page).
+          required: true

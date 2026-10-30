@@ -5,6 +5,3 @@ export const site = {
   email: "hello@bookincambodia.org",
   repoUrl: "https://github.com/HorngFu/Book-in-Cambodia",
 } as const;
-
-export const contributeUrl = `${site.repoUrl}/blob/main/CONTRIBUTING.md`;
-export const newIssueUrl = `${site.repoUrl}/issues/new`;
