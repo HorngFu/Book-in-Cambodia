@@ -10,7 +10,7 @@ import { extname, join, relative, sep } from "node:path";
 import sharp from "sharp";
 
 const ROOT = process.cwd();
-const IMAGE_DIRS = ["public/covers", "public/authors", "public/stores", "public/import-services"];
+const IMAGE_DIRS = ["public/covers", "public/authors", "public/stores", "public/events"];
 const MAX_WIDTH = 600;
 const CONVERT = new Set([".jpg", ".jpeg", ".png"]);
 

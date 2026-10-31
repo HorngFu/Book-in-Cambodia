@@ -13,8 +13,6 @@ export const paths = {
   search: "/search",
   stores: "/stores",
   store: (slug: string) => `/stores/${slug}`,
-  importServices: "/import-services",
-  importService: (slug: string) => `/import-services/${slug}`,
   authors: "/authors",
   author: (slug: string) => `/authors/${slug}`,
   categories: "/categories",

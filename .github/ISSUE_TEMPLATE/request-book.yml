@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for asking! We'll look for it and add it if a store in Cambodia has it. You can also order it from abroad: https://bookincambodia.org/en/import-services
+        Thanks for asking! Stores and volunteers check requests, and we'll add the book as soon as a store in Cambodia has it.
   - type: input
     id: book_title
     attributes:

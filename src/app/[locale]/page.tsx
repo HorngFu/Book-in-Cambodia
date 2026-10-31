@@ -1,4 +1,4 @@
-import { Heart, MapPin, Package, Search, Users } from "lucide-react";
+import { Heart, MapPin, Megaphone, Search, Users } from "lucide-react";
 import Link from "next/link";
 import { BookCard, BookGrid } from "@/components/books/BookCard";
 import { DateBlock, eventPlace, eventPrice } from "@/components/community/EventCard";
@@ -49,7 +49,7 @@ export default async function HomePage({ params }: { params: LocaleParams }) {
   const steps = [
     { icon: <Search {...icon} />, title: dict.home.step1Title, text: dict.home.step1Text },
     { icon: <MapPin {...icon} />, title: dict.home.step2Title, text: dict.home.step2Text },
-    { icon: <Package {...icon} />, title: dict.home.step3Title, text: dict.home.step3Text },
+    { icon: <Megaphone {...icon} />, title: dict.home.step3Title, text: dict.home.step3Text },
   ];
 
   return (
@@ -288,11 +288,11 @@ export default async function HomePage({ params }: { params: LocaleParams }) {
 
       <div className="pt-20 md:pt-30">
         <CtaBand title={dict.home.ctaTitle} text={dict.home.ctaText}>
-          <ButtonLink href={href(locale, paths.importServices)} variant="white" size="lg">
-            {dict.book.orderFromAbroad}
-          </ButtonLink>
-          <ButtonAnchor href={forms.requestBook()} variant="outline-white" size="lg">
+          <ButtonAnchor href={forms.requestBook()} variant="white" size="lg">
             {dict.home.requestBook}
+          </ButtonAnchor>
+          <ButtonAnchor href={forms.addListing()} variant="outline-white" size="lg">
+            {dict.home.addWhereToBuy}
           </ButtonAnchor>
         </CtaBand>
       </div>

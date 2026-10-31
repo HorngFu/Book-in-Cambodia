@@ -66,7 +66,6 @@ export default async function SearchPage({ params }: { params: LocaleParams }) {
             formats={bookFormats
               .filter((f) => usedFormats.has(f.value))
               .map((f) => ({ value: f.value, label: f[locale].split(" · ")[0] }))}
-            abroadHref={href(locale, paths.importServices)}
             contributeHref={`${href(locale, paths.contribute)}#request`}
           />
         </Suspense>

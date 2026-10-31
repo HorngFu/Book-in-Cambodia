@@ -1,9 +1,7 @@
-import { Flag, Package } from "lucide-react";
+import { Flag } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AbroadSteps } from "@/components/abroad/AbroadSteps";
-import { ImportServiceCard } from "@/components/abroad/ImportServiceCard";
 import { BookCover } from "@/components/books/BookCover";
 import { Breadcrumbs, Container, PagePanel } from "@/components/layout/PageHero";
 import { FilterableList } from "@/components/listings/FilterableList";
@@ -18,13 +16,7 @@ import { localized } from "@/i18n/config";
 import { format, plural } from "@/i18n/dictionaries";
 import { pageContext, type LocaleParams } from "@/i18n/page";
 import { href, paths } from "@/i18n/routes";
-import {
-  getAllBooks,
-  getAllImportServices,
-  getBook,
-  getBooksByAuthor,
-  getLookups,
-} from "@/lib/content";
+import { getAllBooks, getBook, getBooksByAuthor, getLookups } from "@/lib/content";
 import { forms } from "@/lib/contribute";
 import { authorNames, bookTitle, provinceName, toBookCard } from "@/lib/view";
 
@@ -84,8 +76,6 @@ export default async function BookPage({ params }: { params: Params }) {
   const listingProvinces = [
     ...new Set(book.availability.map((l) => lookups.stores.get(l.store)?.province).filter(Boolean)),
   ] as string[];
-
-  const services = available ? [] : await getAllImportServices();
 
   return (
     <>
@@ -176,19 +166,22 @@ export default async function BookPage({ params }: { params: Params }) {
                   </ButtonLink>
                 ) : (
                   <>
-                    <ButtonLink href="#services" size="lg">
-                      {dict.book.compareServices}
-                    </ButtonLink>
-                    <ButtonAnchor href={lookingForUrl} variant="outline" size="lg">
+                    <ButtonAnchor href={lookingForUrl} size="lg">
                       {dict.book.lookingFor}
+                    </ButtonAnchor>
+                    <ButtonAnchor href={addListingUrl} variant="outline" size="lg">
+                      {dict.book.addWhereToBuy}
                     </ButtonAnchor>
                   </>
                 )}
               </div>
               {!available ? (
-                <Link href={`${href(locale, paths.contribute)}#request`} className="text-sm">
-                  {dict.contribute.noGithub}
-                </Link>
+                <>
+                  <p className="max-w-2xl text-sm">{dict.book.notLocalText}</p>
+                  <Link href={`${href(locale, paths.contribute)}#request`} className="text-sm">
+                    {dict.contribute.noGithub}
+                  </Link>
+                </>
               ) : null}
             </div>
           </div>
@@ -261,20 +254,6 @@ export default async function BookPage({ params }: { params: Params }) {
           </section>
 
           <aside className="flex max-w-[360px] flex-[1_1_280px] flex-col gap-5">
-            <div className="flex flex-col gap-3 rounded-lg bg-primary p-8 text-white">
-              <h2 className="text-2xl tracking-tighter text-white">{dict.book.differentEdition}</h2>
-              <p className="text-primary-tint">{dict.book.differentEditionText}</p>
-              {book.importNotes ? (
-                <p className="rounded-md bg-white/15 p-3 text-sm text-white">{book.importNotes}</p>
-              ) : null}
-              <ButtonLink
-                href={href(locale, paths.importServices)}
-                variant="white"
-                className="mt-2"
-              >
-                {dict.book.seeImportServices}
-              </ButtonLink>
-            </div>
             <div className="flex flex-col gap-2.5 rounded-lg bg-surface p-8">
               <h2 className="text-[22px] tracking-tighter">{dict.book.sellThis}</h2>
               <p>{dict.book.sellThisText}</p>
@@ -284,43 +263,7 @@ export default async function BookPage({ params }: { params: Params }) {
             </div>
           </aside>
         </Container>
-      ) : (
-        <>
-          <Container className="pt-16 md:pt-24">
-            <AbroadSteps dict={dict} />
-          </Container>
-          <Container className="pt-16 md:pt-24">
-            <section id="services" aria-labelledby="services-h">
-              <SectionHeader
-                id="services-h"
-                start={dict.abroad.servicesStart}
-                accent={dict.abroad.servicesAccent}
-              />
-              {book.importNotes ? (
-                <p className="mb-8 flex gap-3 rounded-lg bg-warn-bg p-5 text-warn">
-                  <Package size={22} aria-hidden="true" className="shrink-0" />
-                  <span>
-                    <strong>{dict.book.importTip}:</strong> {book.importNotes}
-                  </span>
-                </p>
-              ) : null}
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-6">
-                {services.map((service, i) => (
-                  <ImportServiceCard
-                    key={service.slug}
-                    service={service}
-                    index={i}
-                    href={href(locale, paths.importService(service.slug))}
-                    locale={locale}
-                    dict={dict}
-                  />
-                ))}
-              </div>
-              <p className="mt-6 max-w-3xl text-sm">{dict.abroad.disclaimer}</p>
-            </section>
-          </Container>
-        </>
-      )}
+      ) : null}
 
       {moreBy.length ? (
         <Container className="pt-16 md:pt-22">

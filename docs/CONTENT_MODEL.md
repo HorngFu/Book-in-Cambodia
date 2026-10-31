@@ -23,7 +23,6 @@ Any field ending in `Km` is the optional Khmer version. Khmer pages fall back to
 | `cover` | image | Stored in `public/covers/`. Run `npm run images` after uploading. |
 | `description`, `descriptionKm` | text | Short summary. |
 | `availability` | list of listings | Where to get it in Cambodia (below). Empty = "Not in Cambodia yet". |
-| `importNotes` | text | Tip for ordering from abroad. |
 | `addedOn` | date | Sorts "Recently added". |
 
 **Listing** (one item in `availability`):
@@ -60,10 +59,6 @@ Any field ending in `Km` is the optional Khmer version. Khmer pages fall back to
 | `lastVerified` | date | Required. |
 | `sampleData` | checkbox | Made-up example entry: shows a "Sample" label, contact buttons disabled. |
 
-### Import services — `content/import-services/<slug>.yaml`
-
-`name`, `nameKm`, `logo`, `basedIn` (province), `deliversNationwide`, `description`, `descriptionKm`, `sources` (list, e.g. "Amazon US"), `deliveryTime`, `fees`, contact fields (as stores), `lastVerified`, `sampleData`.
-
 ### Events — `content/events/<slug>.yaml` (Phase 7)
 
 `title`, `titleKm`, `type` (book fair, reading club, author talk, book swap, workshop, kids, other), `startDate` (required), `startTime` / `endTime` (24-hour Cambodia time, e.g. `09:00`; no start time = all-day), `endDate` (multi-day events), `venue`, `province` (or `online`), `address`, `mapsUrl`, `onlineUrl`, `organizer`, `telegram`, `facebook`, `isFree`, `price`, `languages`, `description` (+ Khmer), `cover`, `sampleData`.
@@ -87,7 +82,7 @@ Authors also have a `cambodian` checkbox for the Cambodian authors spotlight.
 
 ## Sample data
 
-The books, authors and categories in the seed are real. **All stores, import services, events, book clubs and donation places are made up** and marked `sampleData: true`, as are their prices and dates. Replace them with verified listings before launch (Phase 8).
+The books, authors and categories in the seed are real. **All stores, events, book clubs and donation places are made up** and marked `sampleData: true`, as are their prices and dates. Replace them with verified listings before launch (Phase 8).
 
 ## Checks
 

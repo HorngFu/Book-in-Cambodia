@@ -47,7 +47,7 @@ The visual style for the website. Phase 1 turns this into Tailwind tokens and ba
 | Status | Background | Text | Example |
 |---|---|---|---|
 | Available / in stock | `#E8F7EE` | `#18794E` | "In 3 stores", "In stock" |
-| Order from abroad / ask the store | `#FFF4E0` | `#8A5300` | "Not in Cambodia yet", "Ask the store" |
+| Not in Cambodia yet / ask the store | `#FFF4E0` | `#8A5300` | "Not in Cambodia yet", "Ask the store" |
 | Library / free to read | `#F1F0FE` | `#4B3FD6` | "Borrow on site" |
 | Possibly outdated | — | `#B42318` | "Checked 10 Mar 2026 · may be outdated" |
 
@@ -115,7 +115,7 @@ Font stack: `'Epilogue', 'Kantumruy Pro', system-ui, sans-serif`. Body letter-sp
 | **CTA band** | Full-bleed `primary` panel, centered white heading, white + outline-white buttons. |
 | **FAQ** | Native `<details>`/`<summary>` items, `surface` bg, `radius-md`, summary 72 px tall. |
 | **Date block** | `primary` square, `radius-md`, month (small, 600) over day (large, 700). |
-| **Mobile tab bar** | 5 tabs: Home, Search, Stores, Abroad, Community. Icon 22 px + label 12 px; active = `primary`. |
+| **Mobile tab bar** | 4 tabs: Home, Search, Stores, Community. Icon 22 px + label 12 px; active = `primary`. |
 | **Book spine shelf** | Decorative row of colored rectangles (`primary`, `ink`, `primary-soft`, `#FFB547`, `#FF8A65`, `#2E2A5C`, white) at the bottom of the hero and on store cards. `aria-hidden`. Replaces stock photos. |
 
 **Icons:** simple 2 px stroke icons (Lucide is a good match). Never emoji.

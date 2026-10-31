@@ -5,7 +5,6 @@ import {
   getAllAuthors,
   getAllBooks,
   getAllCategories,
-  getAllImportServices,
   getAllStores,
   getAboutPage,
   getSiteSettings,
@@ -16,18 +15,16 @@ import {
 
 describe("content", () => {
   it("reads every collection", async () => {
-    const [books, authors, categories, stores, services] = await Promise.all([
+    const [books, authors, categories, stores] = await Promise.all([
       getAllBooks(),
       getAllAuthors(),
       getAllCategories(),
       getAllStores(),
-      getAllImportServices(),
     ]);
     expect(books.length).toBeGreaterThan(0);
     expect(authors.length).toBeGreaterThan(0);
     expect(categories.length).toBeGreaterThan(0);
     expect(stores.length).toBeGreaterThan(0);
-    expect(services.length).toBeGreaterThan(0);
   });
 
   it("books only reference existing authors and categories", async () => {

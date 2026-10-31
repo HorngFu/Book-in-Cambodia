@@ -1,6 +1,6 @@
 # Editor guide · មគ្គុទ្ទេសក៍សម្រាប់អ្នកកែសម្រួល
 
-How to add and update books, stores and import services on Book in Cambodia, from your browser. No coding or installation needed.
+How to add and update books, stores, events and other listings on Book in Cambodia, from your browser. No coding or installation needed.
 
 [ខ្មែរ ↓](#ខ្មែរ)
 
@@ -33,7 +33,6 @@ Your changes are saved on your own **branch** (a working copy) and only go live 
 | Say where to buy a book | open the book → **Where to get it in Cambodia → Add** | Pick the store, format, price (USD), stock, and set **Last verified** to the day you checked. |
 | Add a store or library | **Stores and libraries → Add** | Telegram username without `@`. Paste the Google Maps share link. |
 | Add an author | **Authors → Add** | Add the Khmer name for Khmer authors. |
-| Add an import service | **Import services → Add** | Where they order from, delivery time, fees. |
 | Fix wrong information | open the entry, edit, update **Last verified** | |
 
 Uploading a cover? Use a photo you took yourself or the publisher's official cover. After merging, a maintainer runs `npm run images` to shrink it.
@@ -80,7 +79,6 @@ The date someone last confirmed the price, stock or contact details. Listings ol
 | ប្រាប់កន្លែងទិញសៀវភៅ | បើកសៀវភៅ → **Where to get it in Cambodia → Add** | ជ្រើសហាង ទម្រង់ តម្លៃ (ដុល្លារ) ស្តុក ហើយកំណត់ **Last verified** ជាថ្ងៃដែលអ្នកបានពិនិត្យ។ |
 | បន្ថែមហាង ឬបណ្ណាល័យ | **Stores and libraries → Add** | ឈ្មោះ Telegram ដោយគ្មាន `@`។ បិទភ្ជាប់តំណ Google Maps។ |
 | បន្ថែមអ្នកនិពន្ធ | **Authors → Add** | បន្ថែមឈ្មោះជាអក្សរខ្មែរសម្រាប់អ្នកនិពន្ធខ្មែរ។ |
-| បន្ថែមសេវានាំចូល | **Import services → Add** | កុម្ម៉ង់ពីណា រយៈពេលដឹកជញ្ជូន ថ្លៃសេវា។ |
 | កែព័ត៌មានខុស | បើកព័ត៌មាននោះ កែ ហើយធ្វើបច្ចុប្បន្នភាព **Last verified** | |
 
 សូមកុំធីក **Sample data** សម្រាប់ព័ត៌មានពិត។

@@ -8,7 +8,6 @@ export type IssueForm =
   | "request-book"
   | "add-listing"
   | "add-store"
-  | "add-import-service"
   | "report-problem"
   | "submit-event"
   | "add-book-club"
@@ -38,7 +37,6 @@ export const forms = {
       book: book ? `${book.title} — ${book.url}` : undefined,
     }),
   addStore: (name?: string) => issueFormUrl("add-store", `Add store: ${name ?? ""}`),
-  addImportService: () => issueFormUrl("add-import-service", "Add import service: "),
   submitEvent: () => issueFormUrl("submit-event", "Event: "),
   addBookClub: () => issueFormUrl("add-book-club", "Book club: "),
   addDonationPlace: () => issueFormUrl("add-donation-place", "Accepts books: "),

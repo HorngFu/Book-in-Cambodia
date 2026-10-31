@@ -9,7 +9,6 @@ Thank you for helping readers in Cambodia find books. Everyone is welcome: reade
 | Ask for a book | [Request a book](../../issues/new?template=request-book.yml) |
 | Say where a book is sold | [Where to buy a book](../../issues/new?template=add-listing.yml) |
 | Add a bookstore or library | [Add a store](../../issues/new?template=add-store.yml) |
-| Add an import service | [Add an import service](../../issues/new?template=add-import-service.yml) |
 | Fix wrong information | [Report wrong information](../../issues/new?template=report-problem.yml), or use "Report a problem with this page" at the bottom of any page |
 | Edit content myself | Become an editor (below) |
 | Translate | Pick an issue labelled **translation** |
@@ -68,7 +67,7 @@ Guidelines:
 |---|---|
 | `request` | Someone is looking for a book |
 | `listing` | Where a book is sold (to add) |
-| `store` / `import-service` | A new place or service to add |
+| `store` | A new bookstore, library or seller to add |
 | `data-fix` | Wrong or outdated information |
 | `needs-verification` | Someone must confirm before it goes live |
 | `translation` | Khmer/English text work |

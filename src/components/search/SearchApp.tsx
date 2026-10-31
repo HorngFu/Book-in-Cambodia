@@ -39,7 +39,6 @@ export type SearchAppLabels = {
   noResultsText: string;
   requestBook: string;
   noGithub: string;
-  orderAbroad: string;
   coverOf: string;
   card: CardLabels;
 };
@@ -61,7 +60,6 @@ export function SearchApp({
   languages,
   provinces,
   formats,
-  abroadHref,
   contributeHref,
 }: {
   locale: "en" | "km";
@@ -70,7 +68,6 @@ export function SearchApp({
   languages: Option[];
   provinces: Option[];
   formats: Option[];
-  abroadHref: string;
   /** The Contribute page, for people without a GitHub account. */
   contributeHref: string;
 }) {
@@ -258,11 +255,8 @@ export function SearchApp({
               title={q ? format(labels.noResultsTitle, { q }) : labels.noResultsFiltered}
               text={labels.noResultsText}
             >
-              <a href={forms.requestBook({ title: q })} className={buttonClasses("outline")}>
+              <a href={forms.requestBook({ title: q })} className={buttonClasses("dark")}>
                 {labels.requestBook}
-              </a>
-              <a href={abroadHref} className={buttonClasses("dark")}>
-                {labels.orderAbroad}
               </a>
               <a href={contributeHref} className="basis-full text-sm">
                 {labels.noGithub}

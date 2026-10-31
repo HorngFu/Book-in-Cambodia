@@ -6,7 +6,7 @@ A **non-profit, open source hub for book lovers in Cambodia**: one central place
 
 1. **Find a book** by searching title, author, ISBN, or category (English and Khmer).
 2. **See where to get it in Cambodia**: bookstores, second-hand sellers, libraries, and online sellers, with location and contact.
-3. **Contact a book-buying service** that orders from abroad when nobody in Cambodia has it.
+3. **Request a book** nobody lists yet, so stores and volunteers know people want it.
 4. **Join the reading community**: book events and fairs, book clubs, places that accept donated books, and ways to volunteer.
 
 The site does **not** sell books or take payments. It is a directory that points people to the right place.
@@ -18,7 +18,7 @@ These apply to every phase. If a feature would break one of them, it doesn't get
 | Principle | What it means in practice |
 |---|---|
 | **Free for everyone** | No accounts needed to use the site. No paywalls. |
-| **Fair listings** | Every store, library and import service is listed free and treated equally. No paid placement, no "featured" slots for money, no commissions or affiliate links. Ordering is by relevance, distance or name only. |
+| **Fair listings** | Every store and library is listed free and treated equally. No paid placement, no "featured" slots for money, no commissions or affiliate links. Ordering is by relevance, distance or name only. |
 | **No ads, no tracking** | No advertising and no tracking cookies. Analytics are cookie-free and aggregate only. |
 | **Open** | Code is open source (MIT). Catalog data is open (CC BY-SA 4.0) and downloadable, so it outlives the project. |
 | **Transparent money** | Running costs and every donation received are published. Donations only cover running costs (domain, hosting when it becomes paid) and community activities. |
@@ -270,15 +270,13 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 2. Before writing the Keysta
 
 | Route | Content |
 |---|---|
-| `/[locale]` | Home: hero search box, featured/new books, browse by category, "Can't find it? Order from abroad" call-to-action. |
+| `/[locale]` | Home: hero search box, featured/new books, browse by category, "Can't find it? Request it" call-to-action. |
 | `/[locale]/books` | All books, paginated grid. |
-| `/[locale]/books/[slug]` | Book detail: cover, info, **"Where to get it in Cambodia"** list (store, province, format, price, stock, last verified, contact buttons). If no availability → **"Not available locally"** panel listing import services. |
+| `/[locale]/books/[slug]` | Book detail: cover, info, **"Where to get it in Cambodia"** list (store, province, format, price, stock, last verified, contact buttons). If no availability → **"Not in Cambodia yet"** with "Request this book" and "Add where to buy it". |
 | `/[locale]/authors/[slug]` | Author bio + their books. |
 | `/[locale]/categories/[slug]` | Books in a category. |
 | `/[locale]/stores` | Stores grouped/filterable by province and type. |
 | `/[locale]/stores/[slug]` | Store detail: map link, contact, hours, books listed there. |
-| `/[locale]/import-services` | All buying-from-abroad services with how-it-works explanation. |
-| `/[locale]/import-services/[slug]` | Service detail and contact. |
 | `/[locale]/about` | Mission, the non-profit principles, how it works, disclaimer, how to contribute. |
 | `not-found` | Friendly 404 with search. |
 
@@ -298,7 +296,7 @@ Worker size after Phase 3: **1.69 MB gzip** (limit 3 MB).
 ### Done when
 
 - Every seed entry has a working page in `/en` and `/km`.
-- A book with no local availability clearly shows import services.
+- A book with no local availability clearly says so and offers to request it.
 - `npm run build` produces static pages for all routes and the deployed site works.
 
 ### Ask Claude
@@ -469,7 +467,7 @@ Read docs/DEVELOPMENT_PHASES.md and implement Phase 7. Use the Community page in
 - [ ] Accessibility: keyboard navigation, focus states, color contrast, alt text for covers, `lang` attribute per locale.
 - [ ] Cloudflare Web Analytics enabled.
 - [ ] Error pages and basic uptime check (free monitor, e.g. GitHub Actions cron or UptimeRobot free).
-- [ ] **Replace all sample data with real, verified data** (target at launch: 100+ books, 15+ stores, 3+ import services).
+- [ ] **Replace all sample data with real, verified data** (target at launch: 100+ books, 15+ stores).
 - [ ] Disclaimer and privacy note (no tracking cookies, no accounts).
 - [ ] `/[locale]/transparency` page: monthly running costs, donations received, and what they paid for (a simple Markdown table in Keystatic is enough).
 - [ ] "Support us" link in the footer (GitHub Sponsors or Open Collective) that explains donations only cover running costs and community activities.
@@ -553,6 +551,7 @@ Record decisions that change or confirm this plan.
 | 2026-10-30 | 1 | Default language **English** (`/` → `/en`); Khmer at `/km`. Custom JSON dictionaries instead of `next-intl`. | Most catalog data starts in English; one constant (`defaultLocale`) to change later. No middleware keeps OpenNext simple and every page static. |
 | 2026-10-30 | 4 | Search ships the book data (not a prebuilt index) as a static JSON file; the browser builds the MiniSearch index on first use. Khmer = segmenter words + substring fallback. | Smaller download, free to serve, and robust to imperfect Khmer word splitting. Revisit at ~5,000 books (Phase 9: D1 full-text search). |
 | 2026-10-30 | 5 | Editors never commit to `main`: Keystatic saves to `content/…` branches and every change goes through a reviewed PR with a preview link. | Keeps listings trustworthy; a typo in a store's phone number reaches readers only after review. |
+| 2026-11-01 | 3–7 | **Removed "order from abroad"**: the import-services pages, collection, sample data, issue form and all links. Books not in Cambodia now offer "Request this book" and "Add where to buy it". Earlier phase notes that mention import services are history. | Owner's decision; the site focuses on books available in Cambodia and on the reading community. |
 | 2026-10-30 | 8 | Domain: **bookincambodia.org** (Cloudflare Registrar, Email Routing for `hello@`) | Owner's choice; `.org` fits a non-profit and is cheap to keep |
 
 ## Open questions
@@ -569,4 +568,3 @@ Answer these before or during the phase listed.
 | Can trusted editors publish directly, or must every change be reviewed? | Phase 5 |
 | Who moderates requests and reports (GitHub, Telegram)? | Phase 6 |
 | Who reviews submitted events and book clubs? | Phase 7 |
-| Are import services listed free and equally, or vetted first? | Phase 2 / 6 |

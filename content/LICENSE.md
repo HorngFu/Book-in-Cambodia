@@ -1,6 +1,6 @@
 # Content license
 
-All content in this `content/` folder (book, author, store, import service and category data, and page text) is licensed under the
+All content in this `content/` folder (books, authors, stores, categories, events, book clubs, donation places and page text) is licensed under the
 **Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)**.
 
 Full legal text: <https://creativecommons.org/licenses/by-sa/4.0/legalcode>

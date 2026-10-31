@@ -27,9 +27,6 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
             <Link className={linkClass} href={href(locale, paths.stores)}>
               {dict.nav.stores}
             </Link>
-            <Link className={linkClass} href={href(locale, paths.importServices)}>
-              {dict.nav.abroad}
-            </Link>
             <Link className={linkClass} href={href(locale, paths.authors)}>
               {dict.authors.titleStart}
             </Link>

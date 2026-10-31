@@ -1,14 +1,12 @@
 {
   "meta": {
     "title": "Book in Cambodia",
-    "description": "Find any book in Cambodia: see which bookstores, libraries and sellers have it, or order it from abroad. A free, non-profit, open source directory."
+    "description": "Find any book in Cambodia: see which bookstores, libraries and sellers have it, and contact them directly. A free, non-profit, open source directory."
   },
   "nav": {
     "home": "Home",
     "books": "Books",
     "stores": "Stores",
-    "abroad": "Order from abroad",
-    "abroadShort": "Abroad",
     "search": "Search",
     "about": "About",
     "contribute": "Contribute",
@@ -41,9 +39,8 @@
     "retry": "Try again",
     "noResultsTitle": "No books found for “{q}”",
     "noResultsFiltered": "No books match these filters.",
-    "noResultsText": "We don’t have this book listed yet. Tell us you’re looking for it, or ask a service to order it from abroad.",
+    "noResultsText": "We don't have this book listed yet. Tell us you're looking for it, so stores and volunteers know people want it.",
     "requestBook": "Request this book",
-    "orderAbroad": "Order from abroad",
     "seeAll": "See all results for “{q}”",
     "suggestions": "Suggestions",
     "noJs": "Search needs JavaScript. You can still browse all books."
@@ -61,8 +58,8 @@
     "step1Text": "By title, author or ISBN, in English or Khmer.",
     "step2Title": "See where it is in Cambodia",
     "step2Text": "Bookstores, second-hand sellers and libraries, with price and contact.",
-    "step3Title": "Not here? Order from abroad",
-    "step3Text": "Contact a book-buying service that brings it in for you.",
+    "step3Title": "Not listed yet? Request it",
+    "step3Text": "Tell us which book you want, so stores and volunteers know people are looking for it.",
     "categoriesStart": "Find the category",
     "categoriesAccent": "for you",
     "categoriesLead": "From Khmer classics to learning English.",
@@ -95,8 +92,9 @@
       }
     ],
     "ctaTitle": "Can't find it in Cambodia?",
-    "ctaText": "Book-buying services can order it from abroad and deliver it to you here. Or tell us which book you're looking for.",
-    "requestBook": "Request a book"
+    "ctaText": "Tell us which book you're looking for. If you've seen it in a store, add where to buy it so the next reader finds it.",
+    "requestBook": "Request a book",
+    "addWhereToBuy": "Add where to buy a book"
   },
   "book": {
     "inStoresOne": "In 1 store",
@@ -104,7 +102,6 @@
     "inPlacesOne": "In 1 place in Cambodia",
     "inPlacesOther": "In {count} places in Cambodia",
     "notInCambodia": "Not in Cambodia yet",
-    "orderFromAbroad": "Order from abroad",
     "by": "by",
     "from": "from {price}",
     "free": "Free",
@@ -119,21 +116,16 @@
     "whereAccent": "in Cambodia",
     "whereLead": "Prices and stock come from the community. Contact the store to confirm.",
     "reportWrong": "Price or stock wrong? Report it",
-    "differentEdition": "Want a different edition?",
-    "differentEditionText": "Hardcover, a translation or a gift copy: a book-buying service can order it from abroad.",
-    "seeImportServices": "See import services",
     "sellThis": "Sell this book?",
     "sellThisText": "Add your store to this page. It's free, always.",
     "addListing": "Add a listing",
     "moreBy": "More by",
-    "notLocalTitle": "You can still get this book",
-    "notLocalText": "No store in our directory lists it right now. The services below order books from abroad and deliver them in Cambodia.",
-    "compareServices": "Compare import services",
+    "notLocalText": "No store in our directory lists this book yet. Request it so stores and volunteers know people want it, or add a store if you've seen it.",
     "lookingFor": "I'm looking for this book",
-    "importTip": "Tip for ordering from abroad",
     "seenInStore": "Seen this book in a store?",
     "seenInStoreText": "Add it here so the next reader finds it in Cambodia.",
-    "addWhereToBuy": "Add where to buy it"
+    "addWhereToBuy": "Add where to buy it",
+    "requestIt": "Request it"
   },
   "listing": {
     "checked": "Checked {date}",
@@ -192,29 +184,6 @@
     "noBooks": "No books are listed for this place yet.",
     "addBooks": "Add books you've seen here"
   },
-  "abroad": {
-    "titleStart": "Order books",
-    "titleAccent": "from abroad",
-    "lead": "Can't find a book in Cambodia? These services order books from other countries and deliver them to you here.",
-    "howStart": "How ordering",
-    "howAccent": "from abroad works",
-    "step1Title": "Send the title or ISBN",
-    "step1Text": "Message a service on Telegram or Facebook.",
-    "step2Title": "Get a price quote",
-    "step2Text": "Book price, shipping and service fee.",
-    "step3Title": "Pay and receive it",
-    "step3Text": "Delivered to you in Cambodia.",
-    "servicesStart": "Book-buying",
-    "servicesAccent": "services",
-    "ordersFrom": "Orders from",
-    "usualDelivery": "Usual delivery",
-    "fees": "Fees",
-    "basedIn": "Based in {place}",
-    "deliversNationwide": "delivers nationwide",
-    "askOnTelegram": "Ask on Telegram",
-    "runService": "Run a service? Get listed",
-    "disclaimer": "Book in Cambodia doesn't sell books, handle payments or take commissions. Services are listed free by the community; agree on price and delivery with them directly."
-  },
   "about": {
     "title": "About",
     "titleAccent": "Book in Cambodia",
@@ -247,8 +216,6 @@
     "addListingText": "Seen a book in a store or library? Add where, the price and the date.",
     "addStoreTitle": "Add a bookstore or library",
     "addStoreText": "Know a place that sells or lends books? Add it. Listing is free, always.",
-    "addServiceTitle": "Add an import service",
-    "addServiceText": "Run or know a service that orders books from abroad?",
     "reportTitle": "Report wrong information",
     "reportText": "Wrong price, closed store, broken link or a translation mistake? Let us know.",
     "viaGithub": "On GitHub",
@@ -294,7 +261,7 @@
     "principles": [
       {
         "title": "No ads, no commissions",
-        "text": "We never take a cut from stores or import services."
+        "text": "We never take a cut from stores or sellers."
       },
       {
         "title": "Every listing is free and equal",

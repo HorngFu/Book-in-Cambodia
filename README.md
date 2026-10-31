@@ -6,7 +6,7 @@ A non-profit, open source hub for book lovers in Cambodia:
 
 - **Find a book** by title, author or ISBN, in English or Khmer.
 - **See where to get it in Cambodia**: bookstores, second-hand sellers, libraries and online sellers.
-- **Order it from abroad** through a book-buying service when no one in Cambodia has it.
+- **Request it** when no one in Cambodia lists it yet, so stores and volunteers know people want it.
 - **Join the reading community**: events, book clubs, and places that welcome donated books.
 
 We don't sell books, show ads or take commissions. Every store is listed free and equally.

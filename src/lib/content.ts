@@ -13,13 +13,11 @@ export type BookEntry = Entry<Collections["books"]>;
 export type AuthorEntry = Entry<Collections["authors"]>;
 export type CategoryEntry = Entry<Collections["categories"]>;
 export type StoreEntry = Entry<Collections["stores"]>;
-export type ImportServiceEntry = Entry<Collections["importServices"]>;
 
 export type WithSlug<T> = T & { slug: string };
 export type Author = WithSlug<AuthorEntry>;
 export type Category = WithSlug<CategoryEntry>;
 export type Store = WithSlug<StoreEntry>;
-export type ImportService = WithSlug<ImportServiceEntry>;
 export type Listing = BookEntry["availability"][number] & { store: string };
 export type Book = WithSlug<Omit<BookEntry, "availability" | "authors" | "categories">> & {
   authors: string[];
@@ -53,11 +51,6 @@ export const getAllCategories = memo(async (): Promise<Category[]> => {
     .sort((a, b) => (a.order ?? 100) - (b.order ?? 100) || byName(a, b));
 });
 
-export const getAllImportServices = memo(async (): Promise<ImportService[]> => {
-  const all = await reader.collections.importServices.all();
-  return all.map(({ slug, entry }) => ({ ...entry, slug })).sort(byName);
-});
-
 /** All books, newest first. Listings pointing at unknown stores are dropped. */
 export const getAllBooks = memo(async (): Promise<Book[]> => {
   const [all, stores] = await Promise.all([reader.collections.books.all(), getAllStores()]);
@@ -89,10 +82,6 @@ export async function getCategory(slug: string) {
 
 export async function getStore(slug: string) {
   return (await getAllStores()).find((s) => s.slug === slug);
-}
-
-export async function getImportService(slug: string) {
-  return (await getAllImportServices()).find((s) => s.slug === slug);
 }
 
 export async function getBooksByAuthor(authorSlug: string) {

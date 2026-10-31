@@ -60,7 +60,7 @@ export function toBookCard(
         : dict.book.notInCambodia,
     priceLabel:
       count === 0
-        ? dict.book.orderFromAbroad
+        ? dict.book.requestIt
         : price === null
           ? ""
           : price === 0

@@ -5,7 +5,6 @@ import {
   Flag,
   Heart,
   MapPin,
-  Package,
   PenLine,
   Search,
   Users,
@@ -69,14 +68,6 @@ export default async function ContributePage({ params }: { params: LocaleParams 
       text: c.addStoreText,
       github: forms.addStore(),
       emailSubject: "Add a bookstore or library",
-    },
-    {
-      id: "service",
-      icon: <Package {...icon} />,
-      title: c.addServiceTitle,
-      text: c.addServiceText,
-      github: forms.addImportService(),
-      emailSubject: "Add an import service",
     },
     {
       id: "event",

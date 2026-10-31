@@ -14,7 +14,7 @@ export function cardLabels(locale: Locale, dict: Dictionary): CardLabels {
     inStoresOne: dict.book.inStoresOne,
     inStoresOther: dict.book.inStoresOther,
     notInCambodia: dict.book.notInCambodia,
-    orderFromAbroad: dict.book.orderFromAbroad,
+    requestIt: dict.book.requestIt,
     free: dict.book.free,
     from: dict.book.from,
   };
@@ -58,7 +58,6 @@ export function searchAppLabels(locale: Locale, dict: Dictionary): SearchAppLabe
     noResultsText: s.noResultsText,
     requestBook: s.requestBook,
     noGithub: dict.contribute.noGithub,
-    orderAbroad: s.orderAbroad,
     coverOf: dict.book.coverOf,
     card: cardLabels(locale, dict),
   };

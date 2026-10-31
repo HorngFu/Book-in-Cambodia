@@ -65,7 +65,7 @@ export default config({
     brand: { name: "Book in Cambodia" },
     navigation: {
       Catalog: ["books", "authors", "categories"],
-      "Where to get books": ["stores", "importServices"],
+      "Where to get books": ["stores"],
       Community: ["events", "bookClubs", "donationPlaces"],
       Site: ["siteSettings", "aboutPage"],
     },
@@ -159,11 +159,6 @@ export default config({
               `${props.fields.store.value ?? "Store"} · ${props.fields.format.value}`,
           },
         ),
-        importNotes: fields.text({
-          label: "Tips for ordering from abroad",
-          multiline: true,
-          description: "Optional, e.g. which edition to ask for.",
-        }),
         addedOn: fields.date({
           label: "Added on",
           description: "Used for 'Recently added'.",
@@ -242,43 +237,6 @@ export default config({
         hours: fields.text({ label: "Opening hours", description: "e.g. Daily 8:00–20:00" }),
         photo: fields.image({ label: "Photo", directory: "public/stores", publicPath: "/stores/" }),
         notes: fields.text({ label: "Notes", multiline: true }),
-        lastVerified,
-        sampleData,
-      },
-    }),
-
-    importServices: collection({
-      label: "Import services",
-      slugField: "name",
-      path: "content/import-services/*",
-      format: { data: "yaml" },
-      schema: {
-        name: fields.slug({ name: { label: "Name", validation: { length: { min: 1 } } } }),
-        nameKm: khmerText("Name"),
-        logo: fields.image({
-          label: "Logo",
-          directory: "public/import-services",
-          publicPath: "/import-services/",
-        }),
-        basedIn: fields.select({
-          label: "Based in",
-          options: selectOptions(provinces),
-          defaultValue: "phnom-penh",
-        }),
-        deliversNationwide: fields.checkbox({ label: "Delivers nationwide", defaultValue: true }),
-        description: fields.text({ label: "Description", multiline: true }),
-        descriptionKm: khmerText("Description", true),
-        sources: fields.array(fields.text({ label: "Source" }), {
-          label: "Orders from",
-          description: "Shops or countries, e.g. Amazon US, Kinokuniya Bangkok.",
-          itemLabel: (props) => props.value || "Source",
-        }),
-        deliveryTime: fields.text({ label: "Usual delivery time", description: "e.g. 2–3 weeks" }),
-        fees: fields.text({
-          label: "Fees",
-          description: "e.g. Quote per order, or 10% of book price",
-        }),
-        ...contact,
         lastVerified,
         sampleData,
       },

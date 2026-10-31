@@ -2,7 +2,7 @@
   "name": "book-in-cambodia",
   "version": "0.1.0",
   "private": true,
-  "description": "A non-profit, open source hub for book lovers in Cambodia: find a book, see where to get it, or order it from abroad.",
+  "description": "A non-profit, open source hub for book lovers in Cambodia: find a book and see where to get it.",
   "homepage": "https://bookincambodia.org",
   "license": "MIT",
   "scripts": {

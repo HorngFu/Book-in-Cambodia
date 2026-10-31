@@ -1,4 +1,4 @@
-import { Home, MapPin, Package, Search, Users } from "lucide-react";
+import { Home, MapPin, Search, Users } from "lucide-react";
 import type { Metadata } from "next";
 import { Epilogue, Kantumruy_Pro } from "next/font/google";
 import type { ReactNode } from "react";
@@ -60,7 +60,6 @@ export default async function LocaleLayout({
     { href: href(locale), label: dict.nav.home, exact: true },
     { href: href(locale, paths.books), label: dict.nav.books },
     { href: href(locale, paths.stores), label: dict.nav.stores },
-    { href: href(locale, paths.importServices), label: dict.nav.abroad },
     {
       href: href(locale, paths.community),
       label: dict.nav.community,
@@ -75,11 +74,6 @@ export default async function LocaleLayout({
     { href: href(locale), label: dict.nav.home, exact: true, icon: <Home {...iconProps} /> },
     { href: href(locale, paths.search), label: dict.nav.search, icon: <Search {...iconProps} /> },
     { href: href(locale, paths.stores), label: dict.nav.stores, icon: <MapPin {...iconProps} /> },
-    {
-      href: href(locale, paths.importServices),
-      label: dict.nav.abroadShort,
-      icon: <Package {...iconProps} />,
-    },
     {
       href: href(locale, paths.community),
       label: dict.nav.community,

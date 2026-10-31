@@ -53,7 +53,7 @@ export type CardLabels = {
   inStoresOne: string;
   inStoresOther: string;
   notInCambodia: string;
-  orderFromAbroad: string;
+  requestIt: string;
   free: string;
   from: string;
 };
@@ -76,7 +76,7 @@ export function docToCard(doc: SearchDoc, locale: "en" | "km", labels: CardLabel
       ? plural(doc.storeCount, labels.inStoresOne, labels.inStoresOther)
       : labels.notInCambodia,
     priceLabel: !doc.available
-      ? labels.orderFromAbroad
+      ? labels.requestIt
       : price === null
         ? ""
         : price === 0
